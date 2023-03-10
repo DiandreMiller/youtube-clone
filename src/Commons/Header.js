@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Header.css";
+import logo from "../Images/YouTube_Logo.svg"
 
 const Header = () => {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
@@ -24,7 +25,7 @@ const Header = () => {
           </div>
           <div className="navbar__logo">
             <img
-              src=""
+              src={logo}
               alt="YouTube"
             />
           </div>

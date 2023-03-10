@@ -1,39 +1,50 @@
-import React, {useState} from "react";
-import './Header.css'
+import React, { useState } from "react";
+import "./Header.css";
 
 const Header = () => {
+  const [isMenuClicked, setIsMenuClicked] = useState(false);
 
-    // to change burger classes
-    const [burger_class, setBurgerClass] = useState("burger-bar unclicked")
-    const [menu_class, setMenuClass] = useState("menu hidden")
-    const [isMenuClicked, setIsMenuClicked] = useState(false)
+  const updateMenu = () => {
+    setIsMenuClicked(!isMenuClicked);
+  };
 
-    // toggle burger menu change
-    const updateMenu = () => {
-        if(!isMenuClicked) {
-            setBurgerClass("burger-bar clicked")
-            setMenuClass("menu visible")
-        }
-        else {
-            setBurgerClass("burger-bar unclicked")
-            setMenuClass("menu hidden")
-        }
-        setIsMenuClicked(!isMenuClicked)
-    }
+  const burgerClass = isMenuClicked
+    ? "burger-bar clicked"
+    : "burger-bar unclicked";
+  const menuClass = isMenuClicked ? "menu visible" : "menu hidden";
 
-    return(
-        <div style={{width: '100%', height: '100vh'}}>
-            <nav className="hamburger">
-                <div className="hamburger__menu" onClick={updateMenu}>
-                    <div className={burger_class} ></div>
-                    <div className={burger_class} ></div>
-                    <div className={burger_class} ></div>
-                </div>
-            </nav>
-
-            <div className={menu_class}></div>
+  return (
+    <header style={{ width: "100%", height: "100vh" }}>
+      <nav className="hamburger">
+        <div className="hamburger__navbar">
+          <div className="hamburger__menu" onClick={updateMenu}>
+            <div className={burgerClass}></div>
+            <div className={burgerClass}></div>
+            <div className={burgerClass}></div>
+          </div>
+          <div className="navbar__logo">
+            <img
+              src=""
+              alt="YouTube"
+            />
+          </div>
         </div>
-    )
-}
+        
+        <div className="navbar__right">
+          <button>
+            <i className="fas fa-video"></i>
+          </button>
+          <button>
+            <i className="fas fa-bell"></i>
+          </button>
+          <button>
+            <i className="fas fa-user"></i>
+          </button>
+        </div>
+      </nav>
+      <div className={menuClass}></div>
+    </header>
+  );
+};
 
-export default Header
+export default Header;

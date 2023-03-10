@@ -4,14 +4,13 @@ import Home from "./Components/Home";
 import Loading from "./Components/Loading";
 import Video from "./Components/Video";
 
-
 function App() {
   return (
     <div className="App">
-      <Header/>
-     <Home/>
-     <Video/>
-     <Loading/>
+      <Header />
+      <Home />
+      <Video />
+      <Loading />
     </div>
   );
 }

@@ -9,10 +9,10 @@ A Portfolio Project from 3 developers:
 
 ---
 
-### Trello Link:
+### [Trello Link](https://trello.com/b/Yb57y7Fa/react-youtube)
 
 
-### Miro Link:
+### [Miro Link](https://miro.com/app/board/uXjVMfRHl7c=/)
 
 ---
 

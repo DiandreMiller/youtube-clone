@@ -1,23 +1,24 @@
 import "./App.css";
-import Header from "./Components/Header";
+import Header from "./Commons/Header";
 import Home from "./Components/Home";
 import Loading from "./Components/Loading";
 import Video from "./Components/Video";
-import { useEffect} from "react";
-import displayAllVideos from './API/fetch'
+import { useEffect } from "react";
+import displayAllVideos from "./API/fetch";
 
 function App() {
-
   useEffect(() => {
     displayAllVideos()
-      .then(result => console.log(result))
-  }, [])
-
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div className="App">
-
-      
       <Header />
       <Home />
       <Video />
@@ -25,5 +26,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Header.css";
-import logo from "../Images/YouTube_Logo.svg"
+import logo from "../Images/YouTube_Logo.svg";
 
 const Header = () => {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
@@ -9,9 +9,7 @@ const Header = () => {
     setIsMenuClicked(!isMenuClicked);
   };
 
-  const burgerClass = isMenuClicked
-    ? "burger-bar clicked"
-    : "burger-bar unclicked";
+  const burgerClass = isMenuClicked ? "burger-bar clicked" : "burger-bar unclicked";
   const menuClass = isMenuClicked ? "menu visible" : "menu hidden";
 
   return (
@@ -24,13 +22,10 @@ const Header = () => {
             <div className={burgerClass}></div>
           </div>
           <div className="navbar__logo">
-            <img
-              src={logo}
-              alt="YouTube"
-            />
+            <img src={logo} alt="YouTube" />
           </div>
         </div>
-        
+
         <div className="navbar__right">
           <button>
             <i className="fas fa-video"></i>
@@ -43,7 +38,7 @@ const Header = () => {
           </button>
         </div>
       </nav>
-      <div className={menuClass}></div>
+      <div className={menuClass}>home</div>
     </header>
   );
 };

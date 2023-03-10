@@ -18,19 +18,56 @@ const Header = () => {
 
   // determine the content for the menu based on the isMenuClicked value
   const menuContent = isMenuClicked ? (
-    <div className="menu__items">
-      <p>Home</p>
-      <p>Shorts</p>
-      <p>Subscription</p>
-      <p>Library</p>
-    </div>
+    <ul className="menu__items">
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/shorts">Shorts</Link>
+      </li>
+      <li>
+        <Link to="/subscription">Subscription</Link>
+      </li>
+      <li>
+        <Link to="/library">Library</Link>
+      </li>
+      <li>
+        <Link to="/about">About</Link>
+      </li>
+      <li>
+        <Link to="/contact">Contact</Link>
+      </li>
+      <li>
+        <Link to="/settings">Settings</Link>
+      </li>
+    </ul>
   ) : (
-    <div className="menu__items">
-      <p>About</p>
-      <p>Contact</p>
-      <p>Settings</p>
-      <p>Trending</p>
-    </div>
+    <ul className="menu__items">
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/trending">Trending</Link>
+      </li>
+      <li>
+        <Link to="/shorts">Shorts</Link>
+      </li>
+      <li>
+        <Link to="/subscription">Subscription</Link>
+      </li>
+      <li>
+        <Link to="/library">Library</Link>
+      </li>
+      <li>
+        <Link to="/about">About</Link>
+      </li>
+      <li>
+        <Link to="/contact">Contact</Link>
+      </li>
+      <li>
+        <Link to="/settings">Settings</Link>
+      </li>
+    </ul>
   );
 
   return (

@@ -111,6 +111,15 @@
   position: sticky;
   top: 0;
   z-index: -1;
-  border: 1px solid blue;
 }
 
+.menu__items {
+  margin-left: -1rem;
+  margin-top: 1rem;
+  width: 39%;
+  list-style-type: none;
+}
+
+.menu__items li{
+  margin-bottom: 1.2rem;
+}

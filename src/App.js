@@ -5,6 +5,7 @@ import Loading from "./Components/Loading";
 import Video from "./Components/Video";
 import { useEffect } from "react";
 import displayAllVideos from "./API/fetch";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   useEffect(() => {
@@ -19,10 +20,14 @@ function App() {
 
   return (
     <div>
-      <Header />
-      <Home />
-      <Video />
-      <Loading />
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/Components/Home" element={<Home />} />
+          <Route path="/" element={<Video />} />
+          <Route path="/" element={<Loading />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

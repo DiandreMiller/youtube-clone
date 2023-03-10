@@ -9,10 +9,10 @@ A Portfolio Project from 3 developers:
 
 ---
 
-### Trello Link:
+### [Trello Link](https://trello.com/b/Yb57y7Fa/react-youtube)
 
 
-### Miro Link:
+### [Miro Link](https://miro.com/app/board/uXjVMfRHl7c=/)
 
 ---
 
@@ -50,3 +50,7 @@ Skills:
 - Git: A version control system that allows you to track changes to your code and collaborate with others.
 - Local storage: A web technology that allows you to store data on the user's browser so it persists even if the user closes the browser or navigates away from the website.
 - YouTube Data API integration: Incorporating data from remote sources using APIs (Application Programming Interface)
+
+### Resources
+
+Hamburger Menu - [WebDev Basics - React Animated Navbar Burger Menu [2022]]()

@@ -6,8 +6,6 @@ import Video from "./Components/Video";
 
 
 function App() {
-  // console.log(process.env.REACT_APP_YOUTUBE)
-  //fetch 
   return (
     <div className="App">
       <Header/>

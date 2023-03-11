@@ -3,6 +3,11 @@
   box-sizing: border-box;
 }
 
+.hamburger__header {
+  width: 100%;
+  height: 100vh;
+}
+
 .hamburger {
   width: 100%;
   height: 5em;
@@ -32,23 +37,18 @@
     background-color 0.5s ease-out;
 }
 
-.menu {
-  width: 15%;
-  height: 100vh;
-  background-color: rgb(255, 255, 255);
-  position: sticky;
-  top: 0;
-  z-index: -1;
-  border: 1px solid blue;
-}
-
 /* ------------- sliding menu ------------------ */
-.hidden {
+
+.menu {
   display: none;
 }
 
-.visible {
-  display: inherit;
+.menu.visible {
+  display: block;
+}
+
+.menu.hidden {
+  display: none;
 }
 
 /* ----- animations--------- */
@@ -72,4 +72,81 @@
 .burger-bar.unclicked {
   transform: rotate(0) translate(0);
   transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+}
+
+.navbar__logo {
+  width: 100px;
+  height: 100px;
+}
+
+.navbar__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.navbar__rightIcons .fas.fa-video,
+.navbar__rightIcons .fas.fa-bell,
+.navbar__rightIcons .fas.fa-user {
+  font-size: x-large;
+  padding: 5px;
+}
+
+.hamburger__navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar__rightIcons {
+  display: flex;
+  gap: 10px;
+}
+
+.menu {
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+  position: sticky;
+  top: 0;
+  z-index: -1;
+}
+
+.menu__items {
+  margin-left: -2rem;
+  margin-top: 1rem;
+  width: 55%;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.menu__items li {
+  margin-bottom: 1.2rem;
+  border-radius: 0.5em;
+}
+
+.menu__items span {
+  color: rgb(16, 15, 15);
+}
+.menu__items i {
+  font-size: large;
+  padding: 15px;
+  color: black;
+  background-color: transparent;
+}
+
+.menu__items li:hover {
+  background-color: rgb(242, 242, 242);
+  border-radius: 0.5rem;
+}
+
+.icon__link {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  .menu__items {
+    width: 15%;
+    margin-left: -1rem;
+  }
 }

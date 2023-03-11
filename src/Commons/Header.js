@@ -20,52 +20,97 @@ const Header = () => {
   const menuContent = isMenuClicked ? (
     <ul className="menu__items">
       <li>
-        <Link to="/">Home</Link>
+        <Link to="/">
+          <i className="fas fa-home"></i>
+          <span>Home</span>
+        </Link>
       </li>
       <li>
-        <Link to="/shorts">Shorts</Link>
+        <Link to="/shorts">
+          <i className="fab fa-youtube"></i>
+          <span>Shorts</span>
+        </Link>
       </li>
       <li>
-        <Link to="/subscription">Subscription</Link>
+        <Link to="/subscription">
+          <i className="fas fa-video"></i>
+          <span>Subscription</span>
+        </Link>
       </li>
       <li>
-        <Link to="/library">Library</Link>
+        <Link to="/library">
+          <i className="fas fa-book"></i>
+          <span>Library</span>
+        </Link>
       </li>
       <li>
-        <Link to="/about">About</Link>
+        <Link to="/about">
+          <i className="fas fa-info-circle"></i>
+          <span>About</span>
+        </Link>
       </li>
       <li>
-        <Link to="/contact">Contact</Link>
+        <Link to="/contact">
+          <i className="fas fa-envelope"></i>
+          <span>Contact</span>
+        </Link>
       </li>
       <li>
-        <Link to="/settings">Settings</Link>
+        <Link to="/settings">
+          <i className="fas fa-cog"></i>
+          <span>Settings</span>
+        </Link>
       </li>
     </ul>
   ) : (
     <ul className="menu__items">
       <li>
-        <Link to="/">Home</Link>
+        <Link to="/">
+          <i className="fas fa-home"></i>
+          <span>Home</span>
+        </Link>
       </li>
       <li>
-        <Link to="/trending">Trending</Link>
+        <Link to="/trending">
+          <i className="fas fa-fire"></i>
+          <span>Trending</span>
+        </Link>
       </li>
       <li>
-        <Link to="/shorts">Shorts</Link>
+        <Link to="/shorts">
+          <i className="fab fa-youtube"></i>
+          <span>Shorts</span>
+        </Link>
       </li>
       <li>
-        <Link to="/subscription">Subscription</Link>
+        <Link to="/subscription">
+          <i className="fas fa-video"></i>
+          <span>Subscription</span>
+        </Link>
       </li>
       <li>
-        <Link to="/library">Library</Link>
+        <Link to="/library">
+          <i className="fas fa-book"></i>
+          <span>Library</span>
+        </Link>
       </li>
       <li>
-        <Link to="/about">About</Link>
+        <Link to="/about">
+          <i className="fas fa-info-circle"></i>
+          <span>About</span>
+        </Link>
       </li>
       <li>
-        <Link to="/contact">Contact</Link>
+        <Link to="/contact">
+          <i className="fas fa-envelope"></i>
+          <span>Contact</span>
+        </Link>
       </li>
       <li>
-        <Link to="/settings">Settings</Link>
+        <Link to="/settings">
+          <i className="fas fa-cog"></i>
+          <span>Settings</span>
+        </Link>
       </li>
     </ul>
   );

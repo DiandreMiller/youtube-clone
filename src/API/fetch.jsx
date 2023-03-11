@@ -7,4 +7,4 @@ const displayAllVideos = () => {
 
 export default displayAllVideos;
 
-console.log(10)
+

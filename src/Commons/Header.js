@@ -33,8 +33,9 @@ const Header = () => {
       </li>
       <li>
         <Link to="/subscription" className="icon__link">
-          <i className="fas fa-video"></i>
-          <span>Subscription</span>
+          {/* <i className="fas fa-video"></i> */}
+          <span className="material-icons-outlined">Subscriptions</span>
+          {/* <span>Subscription</span> */}
         </Link>
       </li>
       <li>
@@ -89,7 +90,7 @@ const Header = () => {
         </Link>
       </li>
       <li>
-        <Link to="/library" className="icon__link" >
+        <Link to="/library" className="icon__link">
           <i className="fas fa-book"></i>
           <span>Library</span>
         </Link>

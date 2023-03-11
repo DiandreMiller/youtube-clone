@@ -11,9 +11,7 @@ const Header = () => {
     setIsMenuClicked(!isMenuClicked); // toggle isMenuClicked to its opposite value
   };
   // determine the class names for the hamburger menu and the menu based on the isMenuClicked value
-  const burgerClass = isMenuClicked
-    ? "burger-bar clicked"
-    : "burger-bar unclicked";
+  const burgerClass = isMenuClicked ? "burger-bar clicked" : "burger-bar unclicked";
   const menuClass = isMenuClicked ? "menu visible" : "hidden";
 
   // determine the content for the menu based on the isMenuClicked value
@@ -33,9 +31,8 @@ const Header = () => {
       </li>
       <li>
         <Link to="/subscription" className="icon__link">
-          {/* <i className="fas fa-video"></i> */}
-          <span className="material-icons-outlined">Subscriptions</span>
-          {/* <span>Subscription</span> */}
+          <i className="fas fa-video"></i>
+          <span>Subscriptions</span>
         </Link>
       </li>
       <li>
@@ -86,7 +83,7 @@ const Header = () => {
       <li>
         <Link to="/subscription" className="icon__link">
           <i className="fas fa-video"></i>
-          <span>Subscription</span>
+          <span>Subscriptions</span>
         </Link>
       </li>
       <li>

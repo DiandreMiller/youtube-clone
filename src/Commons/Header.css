@@ -113,7 +113,7 @@
 }
 
 .menu__items {
-  margin-left: -1rem;
+  margin-left: -2rem;
   margin-top: 1rem;
   width: 55%;
   list-style-type: none;
@@ -125,9 +125,14 @@
   border-radius: 0.5em;
 }
 
+.menu__items span {
+  color: rgb(16, 15, 15);
+}
 .menu__items i {
-  font-size: x-large;
+  font-size: large;
   padding: 15px;
+  color: black;
+  background-color: transparent;
 }
 
 .menu__items li:hover {
@@ -135,8 +140,13 @@
   border-radius: 0.5rem;
 }
 
+.icon__link {
+  text-decoration: none;
+}
+
 @media screen and (min-width: 768px) {
   .menu__items {
     width: 15%;
+    margin-left: -1rem;
   }
 }

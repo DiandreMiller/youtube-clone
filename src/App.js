@@ -7,6 +7,7 @@ import About from "./Components/About";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ClockLoader from "react-spinners/ClockLoader"
+import Contact from "./Components/Contact";
 
 function App() {
 
@@ -49,10 +50,8 @@ function App() {
         
         <Routes>
           {/* {loading ? null : <Route path='/' element={<Home />} />} */}
-          {/* <Route path="/" element={<Video />} /> */}
-          {loading ? null : <Route path='/about' element={<About/>} />}
-          
-          
+          {loading ? null : <Route path='/about' element={<About />} />}
+          {loading ? null : <Route path='/contact' element={<Contact />} />}
         </Routes>
         
       </BrowserRouter>

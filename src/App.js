@@ -1,18 +1,34 @@
+//CSS
+
 import "./App.css";
+import "./DarkMode.css";
+
+//React Hooks
+
+import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+//Components
+
 import Header from "./Commons/Header";
 import Home from "./Components/Home";
 import Video from "./Components/Video";
-import { useEffect, useState } from "react";
 import About from "./Components/About";
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ClockLoader from "react-spinners/ClockLoader"
 import Contact from "./Components/Contact";
+
+//Spinner
+
+import ClockLoader from "react-spinners/ClockLoader"
+
+//Theme Context
+
+import { createContext } from "react";
+export const ThemeContext = createContext('null');
+
 
 function App() {
 
-  
-
+//Loading Spinner
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -23,10 +39,23 @@ function App() {
           })
       }, 3000)
   }
-      , [])
+    , [])
+  
+  //Light/Dark Theme
+
+  const [theme, setTheme] = useState('light')
+
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setTheme('dark')
+    } else {
+      setTheme('light')
+    }
+  }
 
   return (
-    <div>
+    <ThemeContext.Provider value={{ theme, toggleTheme }} >
+    <div className={theme}>
       <BrowserRouter>
         
         
@@ -55,7 +84,8 @@ function App() {
         </Routes>
         
       </BrowserRouter>
-    </div>
+      </div>
+      </ThemeContext.Provider>
   );
 }
 export default App;

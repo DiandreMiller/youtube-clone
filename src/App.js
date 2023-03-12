@@ -76,7 +76,7 @@ function App() {
           </div>
             :
             
-          <Header ReactSwitch={<ReactSwitch/>} />}
+          <Header  />}
         
         {loading ? null : <Video />}
         

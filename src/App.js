@@ -13,27 +13,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Commons/Header";
 import Home from "./Components/Home";
 import Video from "./Components/Video";
-<<<<<<< HEAD
-import { useEffect, useState } from "react";
-import displayAllVideos from "./API/fetch";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Contact from "./Commons/Contact";
-
-function App() {
-  const [videos, setVideos] = useState([]);
-  const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    displayAllVideos()
-      .then((result) => {
-        setVideos(result);
-        console.log(result);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-=======
 import About from "./Components/About";
 import Contact from "./Components/Contact";
 
@@ -74,7 +53,6 @@ function App() {
       setTheme('light')
     }
   }
->>>>>>> main
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }} >

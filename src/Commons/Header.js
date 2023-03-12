@@ -51,7 +51,7 @@ const Header = () => {
         </Link>
       </li>
       <li>
-        <Link to="/Components/Contact" className="icon__link">
+        <Link to="/contact" className="icon__link">
           <i className="fas fa-envelope"></i>
           <span>Contact</span>
         </Link>
@@ -102,7 +102,7 @@ const Header = () => {
         </Link>
       </li>
       <li>
-        <Link to="/Components/Contact" className="icon__link">
+        <Link to="/contact" className="icon__link">
           <i className="fas fa-envelope"></i>
           <span>Contact</span>
         </Link>

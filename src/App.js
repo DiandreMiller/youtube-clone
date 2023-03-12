@@ -72,9 +72,9 @@ function App() {
           {loading ? null : <Video />}
 
           <Routes>
-            {/* {loading ? null : <Route path='/' element={<Home />} />} */}
+            {loading ? null : <Route path='/' element={<Home />} />}
             {loading ? null : <Route path="/about" element={<About />} />}
-            {loading ? null : <Route path="/Components/Contact" element={<Contact />} />}
+            {loading ? null : <Route path="/contact" element={<Contact />} />}
           </Routes>
         </BrowserRouter>
       </div>

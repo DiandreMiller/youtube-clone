@@ -1,3 +1,4 @@
+
 .modal-container {
     display: none; /* Hide the container by default */
     position: fixed; /* Position the container fixed to the viewport */
@@ -28,4 +29,5 @@
   .modal-form button {
     margin-top: 10px;
   }
+  
   

@@ -1,39 +1,93 @@
+//CSS
+
 import "./App.css";
+import "./DarkMode.css";
+
+//React Hooks
+
+import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+//Components
+
 import Header from "./Commons/Header";
 import Home from "./Components/Home";
-import Loading from "./Components/Loading";
 import Video from "./Components/Video";
-import { useEffect, useState } from "react";
-import displayAllVideos from "./API/fetch";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import About from "./Components/About";
+import Contact from "./Components/Contact";
+
+//Spinner
+
+import ClockLoader from "react-spinners/ClockLoader"
+
+//Theme Context
+
+import { createContext } from "react";
+export const ThemeContext = createContext('null');
+
+
 
 function App() {
 
-  const[videos,setVideos]=useState([])
-  const[search, setSearch]=useState("")
+//Loading Spinner
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    displayAllVideos()
-      .then((result) => {
-        setVideos(result)
-        console.log(result);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+      setTimeout(() => {
+          setLoading(false)
+          setTimeout(() => {
+              setLoading(false)
+          })
+      }, 3000)
+  }
+    , [])
+  
+  //Light/Dark Theme
+
+  const [theme, setTheme] = useState('light')
+
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setTheme('dark')
+    } else {
+      setTheme('light')
+    }
+  }
 
   return (
-    <div>
+    <ThemeContext.Provider value={{ theme, toggleTheme }} >
+    <div className={theme}>
       <BrowserRouter>
-        <Header />
+        
+        
+        {loading ?
+          
+          <div>
+            <h1>Time to Indulge</h1>
+            <ClockLoader
+              loading={loading}
+              color='#d636a9'
+              size={150}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+          
+          </div>
+            :
+            
+          <Header  />}
+        
+        {loading ? null : <Video />}
+        
         <Routes>
-          <Route path="/Components/Home" element={<Home />} />
-          <Route path="/" element={<Video />} />
-          <Route path="/" element={<Loading />} />
+          {/* {loading ? null : <Route path='/' element={<Home />} />} */}
+          {loading ? null : <Route path='/about' element={<About />} />}
+          {loading ? null : <Route path='/contact' element={<Contact />} />}
         </Routes>
+        
       </BrowserRouter>
-    </div>
+      </div>
+      </ThemeContext.Provider>
   );
 }
 export default App;

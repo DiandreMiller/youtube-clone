@@ -6,16 +6,16 @@ import Video from "./Components/Video";
 import { useEffect, useState } from "react";
 import displayAllVideos from "./API/fetch";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Contact from "./Commons/Contact";
 
 function App() {
-
-  const[videos,setVideos]=useState([])
-  const[search, setSearch]=useState("")
+  const [videos, setVideos] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     displayAllVideos()
       .then((result) => {
-        setVideos(result)
+        setVideos(result);
         console.log(result);
       })
       .catch((error) => {
@@ -31,6 +31,7 @@ function App() {
           <Route path="/Components/Home" element={<Home />} />
           <Route path="/" element={<Video />} />
           <Route path="/" element={<Loading />} />
+          <Route path="/Commons/Contact" element={<Contact />} />
         </Routes>
       </BrowserRouter>
     </div>

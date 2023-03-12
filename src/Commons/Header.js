@@ -11,7 +11,9 @@ const Header = () => {
     setIsMenuClicked(!isMenuClicked); // toggle isMenuClicked to its opposite value
   };
   // determine the class names for the hamburger menu and the menu based on the isMenuClicked value
-  const burgerClass = isMenuClicked ? "burger-bar clicked" : "burger-bar unclicked";
+  const burgerClass = isMenuClicked
+    ? "burger-bar clicked"
+    : "burger-bar unclicked";
   const menuClass = isMenuClicked ? "menu visible" : "hidden";
 
   // determine the content for the menu based on the isMenuClicked value
@@ -99,7 +101,7 @@ const Header = () => {
         </Link>
       </li>
       <li>
-        <Link to="/contact" className="icon__link">
+        <Link to="/Commons/Contact" className="icon__link">
           <i className="fas fa-envelope"></i>
           <span>Contact</span>
         </Link>

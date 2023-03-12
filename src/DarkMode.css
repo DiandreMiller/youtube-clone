@@ -1,8 +1,14 @@
-/* .light{
+.light{
     background-color: whitesmoke;
 }
 
-.dark{
+/* .dark{
     background-color: black;
-    color: whitesmoke;
+    
 } */
+
+.dark, .menuitems{
+    color: whitesmoke;
+    background-color: black;
+
+}

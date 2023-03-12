@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import "./Header.css";
 import logo from "../Images/YouTube_Logo.svg";
 import { Link } from "react-router-dom";
+import ReactSwitch from "react-switch";
 
 const Header = () => {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
+  
 
   const updateMenu = () => {
     // function to update the menu state
@@ -115,15 +117,30 @@ const Header = () => {
     </ul>
   );
 
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const handleModeChange = (checked) => {
+
+    setIsDarkMode(checked)
+
+   }
+
   return (
+    
+    <header className={isDarkMode ? "dark" : "light"}>
     <header className="hamburger__header">
       <nav className="hamburger">
         <div className="hamburger__navbar">
+        
           <div className="hamburger__menu" onClick={updateMenu}>
             <div className={burgerClass}></div>
             <div className={burgerClass}></div>
             <div className={burgerClass}></div>
           </div>
+            <ReactSwitch
+              checked={isDarkMode}
+              onChange={handleModeChange}
+            />
           <div className="navbar__logo">
             <Link to="/">
               <img src={logo} alt="YouTube" />
@@ -137,6 +154,7 @@ const Header = () => {
         </div>
       </nav>
       <div className={menuClass}> {menuContent} </div>
+      </header>
     </header>
   );
 };

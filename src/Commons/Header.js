@@ -6,7 +6,6 @@ import ReactSwitch from "react-switch";
 
 const Header = () => {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
-  
 
   const updateMenu = () => {
     // function to update the menu state
@@ -52,7 +51,7 @@ const Header = () => {
         </Link>
       </li>
       <li>
-        <Link to="/contact" className="icon__link">
+        <Link to="/Components/Contact" className="icon__link">
           <i className="fas fa-envelope"></i>
           <span>Contact</span>
         </Link>
@@ -103,7 +102,7 @@ const Header = () => {
         </Link>
       </li>
       <li>
-        <Link to="/Commons/Contact" className="icon__link">
+        <Link to="/Components/Contact" className="icon__link">
           <i className="fas fa-envelope"></i>
           <span>Contact</span>
         </Link>
@@ -120,40 +119,33 @@ const Header = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const handleModeChange = (checked) => {
-
-    setIsDarkMode(checked)
-
-   }
+    setIsDarkMode(checked);
+  };
 
   return (
-    
     <header className={isDarkMode ? "dark" : "light"}>
-    <header className="hamburger__header">
-      <nav className="hamburger">
-        <div className="hamburger__navbar">
-        
-          <div className="hamburger__menu" onClick={updateMenu}>
-            <div className={burgerClass}></div>
-            <div className={burgerClass}></div>
-            <div className={burgerClass}></div>
+      <header className="hamburger__header">
+        <nav className="hamburger">
+          <div className="hamburger__navbar">
+            <div className="hamburger__menu" onClick={updateMenu}>
+              <div className={burgerClass}></div>
+              <div className={burgerClass}></div>
+              <div className={burgerClass}></div>
+            </div>
+            <ReactSwitch checked={isDarkMode} onChange={handleModeChange} />
+            <div className="navbar__logo">
+              <Link to="/">
+                <img src={logo} alt="YouTube" />
+              </Link>
+            </div>
+            <div className="navbar__rightIcons">
+              <i className="fas fa-video"></i>
+              <i className="fas fa-bell"></i>
+              <i className="fas fa-user"></i>
+            </div>
           </div>
-            <ReactSwitch
-              checked={isDarkMode}
-              onChange={handleModeChange}
-            />
-          <div className="navbar__logo">
-            <Link to="/">
-              <img src={logo} alt="YouTube" />
-            </Link>
-          </div>
-          <div className="navbar__rightIcons">
-            <i className="fas fa-video"></i>
-            <i className="fas fa-bell"></i>
-            <i className="fas fa-user"></i>
-          </div>
-        </div>
-      </nav>
-      <div className={menuClass}> {menuContent} </div>
+        </nav>
+        <div className={menuClass}> {menuContent} </div>
       </header>
     </header>
   );

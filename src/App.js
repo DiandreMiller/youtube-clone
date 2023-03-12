@@ -80,16 +80,9 @@ function App() {
         {loading ? null : <Video />}
         
         <Routes>
-<<<<<<< HEAD
-          <Route path="/Components/Home" element={<Home />} />
-          <Route path="/" element={<Video />} />
-          <Route path="/" element={<Loading />} />
-          <Route path="/Commons/Contact" element={<Contact />} />
-=======
           {/* {loading ? null : <Route path='/' element={<Home />} />} */}
           {loading ? null : <Route path='/about' element={<About />} />}
           {loading ? null : <Route path='/contact' element={<Contact />} />}
->>>>>>> main
         </Routes>
         
       </BrowserRouter>

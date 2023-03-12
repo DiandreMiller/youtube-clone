@@ -23,7 +23,6 @@ import ClockLoader from "react-spinners/ClockLoader"
 //Theme Context
 
 import { createContext } from "react";
-import ReactSwitch from "react-switch";
 export const ThemeContext = createContext('null');
 
 

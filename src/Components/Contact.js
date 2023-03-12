@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-// import "./Contact.css";
+import "./Contact.css";
 
 const Result = () => {
   return (
@@ -9,8 +9,20 @@ const Result = () => {
 };
 
 const Contact = () => {
+  const [modal, setModal] = useState(false);
   const [result, setResult] = useState(false);
   const form = useRef();
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
+  if (modal) {
+    document.body.classList.add("active-modal");
+  } else {
+    document.body.classList.remove("active-modal");
+  }
+
   const sendEmail = (event) => {
     event.preventDefault();
     console.log(process.env.REACT_APP_EMAIL);
@@ -40,38 +52,57 @@ const Contact = () => {
 
   return (
     <>
-      <div
-        className={result ? "modal-container modal-show" : "modal-container"}
-      >
-        <form className="modal-form" ref={form} onSubmit={sendEmail}>
-          <h2>Contact Us</h2>
-          <div>
-            <label htmlFor="from_name">Full Name:</label>
-            <br />
-            <input type="text" id="from_name" name="from_name" required />
+      <button onClick={toggleModal} className="btn-modal">
+        Open
+      </button>
+      {modal && (
+        <div className="modal">
+          <div onClick={toggleModal} className="overlay"></div>
+
+          <div className="modal-content">
+            <h2>Contact Us</h2>
+            <form ref={form} onSubmit={sendEmail}>
+              <div>
+                <label htmlFor="from_name">Full Name:</label>
+                <br />
+                <input type="text" id="from_name" name="from_name" required />
+              </div>
+              <div>
+                <label htmlFor="from_email">Email:</label>
+                <br />
+                <input
+                  type="email"
+                  id="from_email"
+                  name="from_email"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="message">Message:</label>
+                <br />
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit">Send</button>
+            </form>
+            {result && (
+              <div onClick={() => setResult(false)}>
+                <div>
+                  <Result />
+                </div>
+              </div>
+            )}
+            <button className="close-modal" onClick={toggleModal}>
+              CLOSE
+            </button>
           </div>
-          <div>
-            <label htmlFor="from_email">Email:</label>
-            <br />
-            <input type="email" id="from_email" name="from_email" required />
-          </div>
-          <div>
-            <label htmlFor="message">Message:</label>
-            <br />
-            <textarea id="message" name="message" rows="3" required></textarea>
-          </div>
-          <button type="submit">Send</button>
-        </form>
-        {result && (
-          <div className="modal-overlay" onClick={() => setResult(false)}>
-            <div className="modal-result">
-              <Result />
-            </div>
-          </div>
-        )}
-      </div>
+        </div>
+      )}
     </>
   );
 };
-
 export default Contact;

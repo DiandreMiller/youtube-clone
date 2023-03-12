@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 
+const key = process.env.REACT_APP_YOUTUBE;
+
 const Home = () => {
   const [search, setSearch] = useState("");
   const [videos, setVideos] = useState([]);
-  const URL = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}&type=video&key=${process.env.REACT_APP_YOUTUBE}`;
+
+  const URL = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}&type=video&key=${key}&maxResults=12`;
   useEffect(() => {
     fetch(`${URL}`)
       .then((response) => response.json())

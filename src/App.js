@@ -44,11 +44,14 @@ function App() {
           </div>
           :
           <Header />}
-        <Video />
+        
+        {loading ? null : <Video />}
+        
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
+          {/* {loading ? null : <Route path='/' element={<Home />} />} */}
           {/* <Route path="/" element={<Video />} /> */}
-          <Route path='/about' element={<About/>} />
+          {loading ? null : <Route path='/about' element={<About/>} />}
+          
           
         </Routes>
         

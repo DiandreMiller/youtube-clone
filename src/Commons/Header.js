@@ -125,7 +125,7 @@ const Header = () => {
             <div className={burgerClass}></div>
           </div>
           <div className="navbar__logo">
-            <Link to="/Components/Home">
+            <Link to="/">
               <img src={logo} alt="YouTube" />
             </Link>
           </div>

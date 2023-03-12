@@ -26,7 +26,10 @@ const Video = () => {
     //         })
     // }, [URL])
 
-    console.log('videos',videos)
+    console.log('videos', videos)
+    console.log('URL', URL)
+    console.log('search', search)
+    
 
     return (
         <div>

@@ -6,16 +6,13 @@ import ReactSwitch from "react-switch";
 
 const Header = () => {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
-  
 
   const updateMenu = () => {
     // function to update the menu state
     setIsMenuClicked(!isMenuClicked); // toggle isMenuClicked to its opposite value
   };
   // determine the class names for the hamburger menu and the menu based on the isMenuClicked value
-  const burgerClass = isMenuClicked
-    ? "burger-bar clicked"
-    : "burger-bar unclicked";
+  const burgerClass = isMenuClicked ? "burger-bar clicked" : "burger-bar unclicked";
   const menuClass = isMenuClicked ? "menu visible" : "hidden";
 
   // determine the content for the menu based on the isMenuClicked value
@@ -36,7 +33,7 @@ const Header = () => {
       <li>
         <Link to="/subscription" className="icon__link">
           <i className="fas fa-video"></i>
-          <span>Subscription</span>
+          <span>Subscriptions</span>
         </Link>
       </li>
       <li>
@@ -87,11 +84,11 @@ const Header = () => {
       <li>
         <Link to="/subscription" className="icon__link">
           <i className="fas fa-video"></i>
-          <span>Subscription</span>
+          <span>Subscriptions</span>
         </Link>
       </li>
       <li>
-        <Link to="/library" className="icon__link" >
+        <Link to="/library" className="icon__link">
           <i className="fas fa-book"></i>
           <span>Library</span>
         </Link>
@@ -120,40 +117,33 @@ const Header = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const handleModeChange = (checked) => {
-
-    setIsDarkMode(checked)
-
-   }
+    setIsDarkMode(checked);
+  };
 
   return (
-    
     <header className={isDarkMode ? "dark" : "light"}>
-    <header className="hamburger__header">
-      <nav className="hamburger">
-        <div className="hamburger__navbar">
-        
-          <div className="hamburger__menu" onClick={updateMenu}>
-            <div className={burgerClass}></div>
-            <div className={burgerClass}></div>
-            <div className={burgerClass}></div>
+      <header className="hamburger__header">
+        <nav className="hamburger">
+          <div className="hamburger__navbar">
+            <div className="hamburger__menu" onClick={updateMenu}>
+              <div className={burgerClass}></div>
+              <div className={burgerClass}></div>
+              <div className={burgerClass}></div>
+            </div>
+            <ReactSwitch checked={isDarkMode} onChange={handleModeChange} />
+            <div className="navbar__logo">
+              <Link to="/">
+                <img src={logo} alt="YouTube" />
+              </Link>
+            </div>
+            <div className="navbar__rightIcons">
+              <i className="fas fa-video"></i>
+              <i className="fas fa-bell"></i>
+              <i className="fas fa-user"></i>
+            </div>
           </div>
-            <ReactSwitch
-              checked={isDarkMode}
-              onChange={handleModeChange}
-            />
-          <div className="navbar__logo">
-            <Link to="/">
-              <img src={logo} alt="YouTube" />
-            </Link>
-          </div>
-          <div className="navbar__rightIcons">
-            <i className="fas fa-video"></i>
-            <i className="fas fa-bell"></i>
-            <i className="fas fa-user"></i>
-          </div>
-        </div>
-      </nav>
-      <div className={menuClass}> {menuContent} </div>
+        </nav>
+        <div className={menuClass}> {menuContent} </div>
       </header>
     </header>
   );

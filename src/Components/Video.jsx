@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
-const Video = () => {
+const Video = ({videos, setVideos}) => {
   const [search, setSearch] = useState("");
-  const [videos, setVideos] = useState([]);
-  const URL = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=12`;
+  // const [videos, setVideos] = useState([]);
+  const URL = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=5`;
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -17,17 +17,17 @@ const Video = () => {
       });
   };
 
-  // useEffect(() => {
-  //     fetch(`${URL}`)
-  //         .then(response => response.json())
-  //         .then(data => {
-  //             setVideos(data.items.map(item => item.id.videoId))
-  //         }).catch((error) => {
-  //             console.log(error);
-  //         })
-  // }, [URL])
+  useEffect(() => {
+      fetch(`${URL}`)
+          .then(response => response.json())
+          .then(data => {
+              setVideos(data.items.map(item => item.id.videoId))
+          }).catch((error) => {
+              console.log(error);
+          })
+  }, [search])
 
-  console.log("videos", videos);
+  // console.log("videos", videos);
 
   return (
     <div>

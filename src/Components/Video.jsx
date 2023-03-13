@@ -17,15 +17,15 @@ const Video = ({videos, setVideos}) => {
       });
   };
 
-  useEffect(() => {
-      fetch(`${URL}`)
-          .then(response => response.json())
-          .then(data => {
-              setVideos(data.items.map(item => item.id.videoId))
-          }).catch((error) => {
-              console.log(error);
-          })
-  }, [search])
+  // useEffect(() => {
+  //     fetch(`${URL}`)
+  //         .then(response => response.json())
+  //         .then(data => {
+  //             setVideos(data.items.map(item => item.id.videoId))
+  //         }).catch((error) => {
+  //             console.log(error);
+  //         })
+  // }, [search])
 
   // console.log("videos", videos);
 

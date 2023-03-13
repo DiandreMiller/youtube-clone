@@ -55,6 +55,18 @@ function App() {
     }
   };
 
+  //Home or Search
+
+  const [userSearch, setUserSearch] = useState(false);
+
+  const handleUserSearch = () => {
+    setUserSearch(!userSearch);
+  };
+
+  // Lifting State to Video and Home
+
+  const [videos, setVideos] = useState([]);
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className={theme}>
@@ -74,10 +86,23 @@ function App() {
             <Header modal={modal} toggleModal={toggleModal} />
           )}
 
-          {loading ? null : <Video />}
+          {/* {loading ? null : <Video />} */}
+          {loading ? (
+            <Video videos={videos} setVideos={setVideos} />
+          ) : userSearch ? (
+            <Home videos={videos} setVideos={setVideos} />
+          ) : (
+            <Video videos={videos} setVideos={setVideos} />
+          )}
+          {/* {userSearch ? <Video/> : <Home/>} */}
 
           <Routes>
-            {/* {loading ? null : <Route path='/' element={<Home />} />} */}
+            {loading ? null : (
+              <Route
+                path="/"
+                element={<Home videos={videos} setVideos={setVideos} />}
+              />
+            )}
             {loading ? null : <Route path="/about" element={<About />} />}
             {loading ? null : (
               <Route

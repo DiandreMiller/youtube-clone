@@ -12,14 +12,11 @@ const Header = ({ modal, toggleModal }) => {
     setIsMenuClicked(false);
   };
 
-  const updateMenu = () => {
-    // function to update the menu state
+  const updateMenu = () => { // function to update the menu state
     setIsMenuClicked(!isMenuClicked); // toggle isMenuClicked to its opposite value
   };
   // determine the class names for the hamburger menu and the menu based on the isMenuClicked value
-  const burgerClass = isMenuClicked
-    ? "burger-bar clicked"
-    : "burger-bar unclicked";
+  const burgerClass = isMenuClicked ? "burger-bar clicked" : "burger-bar unclicked";
   const menuClass = isMenuClicked ? "menu visible" : "hidden";
 
   // determine the content for the menu based on the isMenuClicked value

@@ -56,11 +56,12 @@ const Contact = () => {
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
             <h2>Contact Us</h2>
+            <br />
             <form ref={form} onSubmit={sendEmail}>
               <div>
                 <label htmlFor="from_name">Full Name:</label>
                 <br />
-                <input type="text" id="from_name" name="from_name" required />
+                <input type="text" id="from_name" name="from_name" required autofocus/>
               </div>
               <div>
                 <label htmlFor="from_email">Email:</label>
@@ -91,7 +92,7 @@ const Contact = () => {
                 </div>
               </div>
             )}
-            <button className="close-modal" onClick={toggleModal}> CLOSE </button>
+            <button className="close-modal" onClick={toggleModal}> x </button>
           </div>
         </div>
       )}

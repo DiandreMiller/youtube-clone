@@ -9,12 +9,21 @@ const Result = () => {
 };
 
 const Contact = () => {
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState(true);
   const [result, setResult] = useState(false);
+  const [previousFocusedElement, setPreviousFocusedElement] = useState(null);
   const form = useRef();
 
   const toggleModal = () => {
     setModal(!modal);
+    setPreviousFocusedElement(document.activeElement);  
+  };
+
+  const closeModal = () => {
+    setModal(false);
+    if (previousFocusedElement) {
+      previousFocusedElement.focus();
+    }
   };
 
   if (modal) {
@@ -25,7 +34,6 @@ const Contact = () => {
 
   const sendEmail = (event) => {
     event.preventDefault();
-    console.log(process.env.REACT_APP_EMAIL);
     emailjs
       .sendForm(
         "service_nj48cb8",
@@ -52,20 +60,23 @@ const Contact = () => {
 
   return (
     <>
-      <button onClick={toggleModal} className="btn-modal">
-        Open
-      </button>
       {modal && (
         <div className="modal">
           <div onClick={toggleModal} className="overlay"></div>
-
           <div className="modal-content">
             <h2>Contact Us</h2>
+            <br />
             <form ref={form} onSubmit={sendEmail}>
               <div>
                 <label htmlFor="from_name">Full Name:</label>
                 <br />
-                <input type="text" id="from_name" name="from_name" required />
+                <input
+                  type="text"
+                  id="from_name"
+                  name="from_name"
+                  required
+                  autofocus
+                />
               </div>
               <div>
                 <label htmlFor="from_email">Email:</label>
@@ -82,12 +93,14 @@ const Contact = () => {
                 <br />
                 <textarea
                   id="message"
-                  name="message"
+                  name="message"  
                   rows="3"
                   required
                 ></textarea>
               </div>
-              <button type="submit">Send</button>
+              <button className="send-modal" type="submit">
+                Send
+              </button>
             </form>
             {result && (
               <div onClick={() => setResult(false)}>
@@ -96,8 +109,9 @@ const Contact = () => {
                 </div>
               </div>
             )}
-            <button className="close-modal" onClick={toggleModal}>
-              CLOSE
+            <button className="close-modal" onClick={closeModal}>
+              {" "}
+              x{" "}
             </button>
           </div>
         </div>

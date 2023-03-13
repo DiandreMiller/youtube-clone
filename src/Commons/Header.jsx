@@ -4,15 +4,22 @@ import logo from "../Images/YouTube_Logo.svg";
 import { Link } from "react-router-dom";
 import ReactSwitch from "react-switch";
 
-const Header = () => {
+const Header = ({ modal, toggleModal }) => {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
+
+  const handleContactClick = () => {
+    toggleModal();
+    setIsMenuClicked(false);
+  };
 
   const updateMenu = () => {
     // function to update the menu state
     setIsMenuClicked(!isMenuClicked); // toggle isMenuClicked to its opposite value
   };
   // determine the class names for the hamburger menu and the menu based on the isMenuClicked value
-  const burgerClass = isMenuClicked ? "burger-bar clicked" : "burger-bar unclicked";
+  const burgerClass = isMenuClicked
+    ? "burger-bar clicked"
+    : "burger-bar unclicked";
   const menuClass = isMenuClicked ? "menu visible" : "hidden";
 
   // determine the content for the menu based on the isMenuClicked value
@@ -49,7 +56,7 @@ const Header = () => {
         </Link>
       </li>
       <li>
-        <Link to="/contact" className="icon__link">
+        <Link to="/contact" className="icon__link" onClick={handleContactClick}>
           <i className="fas fa-envelope"></i>
           <span>Contact</span>
         </Link>
@@ -100,7 +107,7 @@ const Header = () => {
         </Link>
       </li>
       <li>
-        <Link to="/contact" className="icon__link">
+        <Link to="/contact" className="icon__link" onClick={handleContactClick}>
           <i className="fas fa-envelope"></i>
           <span>Contact</span>
         </Link>

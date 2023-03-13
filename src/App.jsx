@@ -5,7 +5,7 @@ import "./DarkMode.css";
 
 //React Hooks
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 //Components
@@ -26,6 +26,11 @@ import { createContext } from "react";
 export const ThemeContext = createContext("null");
 
 function App() {
+  const [modal, setModal] = useState(false);
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
   //Loading Spinner
   const [loading, setLoading] = useState(true);
 
@@ -66,7 +71,7 @@ function App() {
               />
             </div>
           ) : (
-            <Header />
+            <Header modal={modal} toggleModal={toggleModal} />
           )}
 
           {loading ? null : <Video />}
@@ -74,7 +79,12 @@ function App() {
           <Routes>
             {/* {loading ? null : <Route path='/' element={<Home />} />} */}
             {loading ? null : <Route path="/about" element={<About />} />}
-            {loading ? null : <Route path="/contact" element={<Contact />} />}
+            {loading ? null : (
+              <Route
+                path="/contact"
+                element={<Contact modal={modal} toggleModal={toggleModal} />}
+              />
+            )}
           </Routes>
         </BrowserRouter>
       </div>

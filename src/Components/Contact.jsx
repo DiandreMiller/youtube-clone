@@ -9,7 +9,7 @@ const Result = () => {
 };
 
 const Contact = () => {
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState(true);
   const [result, setResult] = useState(false);
   const form = useRef();
 
@@ -25,7 +25,6 @@ const Contact = () => {
 
   const sendEmail = (event) => {
     event.preventDefault();
-    console.log(process.env.REACT_APP_EMAIL);
     emailjs
       .sendForm(
         "service_nj48cb8",
@@ -52,13 +51,9 @@ const Contact = () => {
 
   return (
     <>
-      <button onClick={toggleModal} className="btn-modal">
-        Open
-      </button>
       {modal && (
         <div className="modal">
           <div onClick={toggleModal} className="overlay"></div>
-
           <div className="modal-content">
             <h2>Contact Us</h2>
             <form ref={form} onSubmit={sendEmail}>
@@ -96,9 +91,7 @@ const Contact = () => {
                 </div>
               </div>
             )}
-            <button className="close-modal" onClick={toggleModal}>
-              CLOSE
-            </button>
+            <button className="close-modal" onClick={toggleModal}> CLOSE </button>
           </div>
         </div>
       )}

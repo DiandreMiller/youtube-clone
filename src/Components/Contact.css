@@ -65,6 +65,7 @@ body.active-modal {
 
 .modal-content h2 {
   color: rgb(234, 51, 35);
+  text-align: center;
 }
 
 .modal-content input,
@@ -94,6 +95,7 @@ body.active-modal {
   font-size: 18px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+  margin-left: 35%;
 }
 
 .modal-content button[type="submit"]:hover {
@@ -104,3 +106,4 @@ body.active-modal {
 .modal-content p {
   margin-bottom: 20px;
 }
+

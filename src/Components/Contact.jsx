@@ -76,6 +76,7 @@ const Contact = () => {
                   name="from_name"
                   required
                   autofocus
+                  placeholder="Your Full Name..."
                 />
               </div>
               <div>
@@ -86,6 +87,7 @@ const Contact = () => {
                   id="from_email"
                   name="from_email"
                   required
+                  placeholder="Your Email..."
                 />
               </div>
               <div>
@@ -96,6 +98,7 @@ const Contact = () => {
                   name="message"  
                   rows="3"
                   required
+                  placeholder="Your Message..."
                 ></textarea>
               </div>
               <button className="send-modal" type="submit">

@@ -1,31 +1,9 @@
-.light{
-    background-color: whitesmoke;
+/* .dark,
+.menuitems {
+  color: whitesmoke;
+  background-color: black;
 }
 
-/* .dark{
-    background-color: black;
-    
+.light {
+  color: black;
 } */
-
-.dark, .menuitems{
-    color: whitesmoke;
-    background-color: black;
-
-}
-
-.dark {
-
-    color: whitesmoke;
-    background-color: black;
-
-}
-
-.light{
-
-    background-color: whitesmoke;
-    color: black;
-
-}
-
-
-

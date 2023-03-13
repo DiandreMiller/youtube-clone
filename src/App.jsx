@@ -59,13 +59,15 @@ function App() {
 
   const [userSearch, setUserSearch] = useState(false);
 
-  const handleUserSearch = () => {
-    setUserSearch(!userSearch);
-  };
+  // const handleUserSearch = () => {
+  //   setUserSearch(!userSearch);
+  // };
 
   // Lifting State to Video and Home
 
   const [videos, setVideos] = useState([]);
+
+  console.log("videos", videos);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
@@ -95,6 +97,7 @@ function App() {
             <Video videos={videos} setVideos={setVideos} />
           )}
           {/* {userSearch ? <Video/> : <Home/>} */}
+          
 
           <Routes>
             {loading ? null : (

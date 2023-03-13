@@ -1,5 +1,5 @@
 const About = () => {
-    return <p>poop</p>
+    return <p>pop</p>
 }
 
 export default About

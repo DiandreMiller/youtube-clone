@@ -135,6 +135,11 @@
   background-color: transparent;
 }
 
+.navbar__rightIcons i:hover {
+  background-color: rgb(242, 242, 242);
+  border-radius: 50%;
+}
+
 .menu__items li:hover {
   background-color: rgb(242, 242, 242);
   border-radius: 0.5rem;

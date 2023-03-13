@@ -4,8 +4,8 @@ import "./Video.css";
 
 const Video = ({ videos, setVideos }) => {
   const [search, setSearch] = useState("");
-  // const [videos, setVideos] = useState([]);
-  // const URL = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=5`;
+  
+  const URL = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=5`;
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -18,18 +18,18 @@ const Video = ({ videos, setVideos }) => {
         console.log(error);
       });
   };
-  /*
-  useEffect(() => {
-      fetch(`${URL}`)
-          .then(response => response.json())
-          .then(data => {
-              setVideos(data.items.map(item => item.id.videoId))
-          }).catch((error) => {
-              console.log(error);
-          })
-  }, [search])
+  
+  // useEffect(() => {
+  //     fetch(`${URL}`)
+  //         .then(response => response.json())
+  //         .then(data => {
+  //             setVideos(data.items.map(item => item.id.videoId))
+  //         }).catch((error) => {
+  //             console.log(error);
+  //         })
+  // }, [search])
 
-do not delete above useEffect - its commented to save api */
+//do not delete above useEffect - its commented to save api 
 
   // console.log("videos", videos);
 

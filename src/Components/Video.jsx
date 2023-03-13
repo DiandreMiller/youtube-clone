@@ -41,8 +41,13 @@ do not delete above useEffect - its commented to save api */
             type="text"
             value={search}
             onChange={(event) => setSearch(event.target.value)}
+            autoFocus
+            placeholder="Search"
+            className="search-input"
           />
-          <button type="submit">Search</button>
+          <button type="submit" className="search-button">
+            <i className="fa fa-search"></i>
+          </button>
         </form>
         <div className="videos-grid">
           {videos.map((video, index) => {

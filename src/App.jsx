@@ -5,7 +5,7 @@ import "./DarkMode.css";
 
 //React Hooks
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 //Components
@@ -26,6 +26,11 @@ import { createContext } from "react";
 export const ThemeContext = createContext("null");
 
 function App() {
+  const [modal, setModal] = useState(false);
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
   //Loading Spinner
   const [loading, setLoading] = useState(true);
 
@@ -50,13 +55,13 @@ function App() {
     }
   };
 
-//Home or Search
-  
-  const [userSearch, setUserSearch] = useState(false)
+  //Home or Search
+
+  const [userSearch, setUserSearch] = useState(false);
 
   const handleUserSearch = () => {
-    setUserSearch(!userSearch)
-  }
+    setUserSearch(!userSearch);
+  };
 
   // Lifting State to Video and Home
 
@@ -78,20 +83,33 @@ function App() {
               />
             </div>
           ) : (
-            <Header />
+            <Header modal={modal} toggleModal={toggleModal} />
           )}
 
           {/* {loading ? null : <Video />} */}
-          {loading ? <Video videos={videos} setVideos={setVideos} /> : userSearch ?
-            <Home videos={videos} setVideos={setVideos} /> : <Video videos={videos}
-              setVideos={setVideos} />}
+          {loading ? (
+            <Video videos={videos} setVideos={setVideos} />
+          ) : userSearch ? (
+            <Home videos={videos} setVideos={setVideos} />
+          ) : (
+            <Video videos={videos} setVideos={setVideos} />
+          )}
           {/* {userSearch ? <Video/> : <Home/>} */}
-          
 
           <Routes>
-            {loading ? null : <Route path='/' element={<Home videos={videos} setVideos={setVideos} />} />}
+            {loading ? null : (
+              <Route
+                path="/"
+                element={<Home videos={videos} setVideos={setVideos} />}
+              />
+            )}
             {loading ? null : <Route path="/about" element={<About />} />}
-            {loading ? null : <Route path="/contact" element={<Contact />} />}
+            {loading ? null : (
+              <Route
+                path="/contact"
+                element={<Contact modal={modal} toggleModal={toggleModal} />}
+              />
+            )}
           </Routes>
         </BrowserRouter>
       </div>

@@ -116,7 +116,6 @@ const Contact = () => {
           </div>
         </div>
       )}
-      <button onClick={toggleModal}>Open Modal</button>
     </>
   );
 };

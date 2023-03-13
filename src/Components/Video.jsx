@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 
-const Video = ({videos, setVideos}) => {
+import "./Video.css";
+
+const Video = ({ videos, setVideos }) => {
   const [search, setSearch] = useState("");
   // const [videos, setVideos] = useState([]);
   // const URL = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=5`;
@@ -16,7 +18,7 @@ const Video = ({videos, setVideos}) => {
         console.log(error);
       });
   };
-/*
+  /*
   useEffect(() => {
       fetch(`${URL}`)
           .then(response => response.json())
@@ -27,13 +29,12 @@ const Video = ({videos, setVideos}) => {
           })
   }, [search])
 
-do not delete above useEffect - its commented to save api */ 
-
+do not delete above useEffect - its commented to save api */
 
   // console.log("videos", videos);
 
   return (
-    <div>
+    <div className="video-container">
       <form onSubmit={handleSearch}>
         <input
           type="text"
@@ -42,7 +43,7 @@ do not delete above useEffect - its commented to save api */
         />
         <button type="submit">Search</button>
       </form>
-      <div>
+      <div className="videos-grid">
         {videos.map((video, index) => {
           return (
             <div key={index}>

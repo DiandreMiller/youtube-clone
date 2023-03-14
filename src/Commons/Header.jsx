@@ -103,9 +103,9 @@ const Header = ({ modal, toggleModal }) => {
         </div>
       </div>
       <div className={`navbar__rightIcons ${isDarkMode ? "dark" : "light"}`}>
-        <i className="fas fa-video"></i>
-        <i className="fas fa-bell"></i>
-        <i className="fas fa-user"></i>
+        <i className="fas fa-video" onClick={handleMenuClick}></i>
+        <i className="fas fa-bell" onClick={handleMenuClick}></i>
+        <i className="fas fa-user" onClick={handleMenuClick}></i>
         <div className="switch-container">
           <ReactSwitch
             className="switch"

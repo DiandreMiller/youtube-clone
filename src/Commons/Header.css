@@ -161,6 +161,7 @@ header {
   margin-left: 1em;
   font-size: 1.7em;
   padding: 5px;
+  cursor: pointer;
 }
 
 .dark .burger-bar {

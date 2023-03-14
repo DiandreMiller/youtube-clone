@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import FutureWorks from "./FutureWorks";
 import "./Home.css";
 
 const Home = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleButtonClick = () => {
+    setIsModalOpen(true);
+  };
   const [search, setSearch] = useState("");
   const [videos, setVideos] = useState([]);
   const [videoIds, setVideoIds] = useState([]);
@@ -54,16 +60,37 @@ const Home = () => {
           </div>
         </form>
         <div className="buttons-container">
-          <button className="search-option-button">All</button>
-          <button className="search-option-button">Music</button>
-          <button className="search-option-button">Cooking</button>
-          <button className="search-option-button">Programming</button>
-          <button className="search-option-button">Gaming</button>
-          <button className="search-option-button">Awards</button>
-          <button className="search-option-button">Auditions</button>
-          <button className="search-option-button">Comedy</button>
-          <button className="search-option-button">Baseball</button>
-          <button className="search-option-button">Drawing</button>
+          <button className="search-option-button" onClick={handleButtonClick}>
+            All
+          </button>
+          <button className="search-option-button" onClick={handleButtonClick}>
+            Music
+          </button>
+          <button className="search-option-button" onClick={handleButtonClick}>
+            Cooking
+          </button>
+          <button className="search-option-button" onClick={handleButtonClick}>
+            Programming
+          </button>
+          <button className="search-option-button" onClick={handleButtonClick}>
+            Gaming
+          </button>
+          <button className="search-option-button" onClick={handleButtonClick}>
+            Awards
+          </button>
+          <button className="search-option-button" onClick={handleButtonClick}>
+            Auditions
+          </button>
+          <button className="search-option-button" onClick={handleButtonClick}>
+            Comedy
+          </button>
+          <button className="search-option-button" onClick={handleButtonClick}>
+            Baseball
+          </button>
+          <button className="search-option-button" onClick={handleButtonClick}>
+            Drawing
+          </button>
+          {isModalOpen && <FutureWorks setIsModalOpen={setIsModalOpen} />}
         </div>
 
         <div className="videos-grid">

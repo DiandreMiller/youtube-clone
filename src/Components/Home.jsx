@@ -62,7 +62,16 @@ const Home = () => {
 
   useEffect(() => {
     fetch(`${URL_Loading}`)
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          setIsError(true);
+          setErrorMessage(
+            "An error occurred while fetching data. Please try again later."
+          );
+          throw new Error(`HTTP Error: ${response.status}`);
+        }
+        return response.json();
+      })
       .then((data) => {
         setVideos(data.items.map((item) => item.snippet));
         setVideoIds(data.items.map((item) => item.id.videoId));

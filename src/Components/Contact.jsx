@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import "./Contact.css";
 
@@ -16,11 +16,12 @@ const Contact = () => {
 
   const toggleModal = () => {
     setModal(!modal);
-    setPreviousFocusedElement(document.activeElement);  
+    setPreviousFocusedElement(document.activeElement);
   };
 
   const closeModal = () => {
     setModal(false);
+    window.history.pushState({}, null, "/");
     if (previousFocusedElement) {
       previousFocusedElement.focus();
     }
@@ -68,20 +69,24 @@ const Contact = () => {
             <br />
             <form ref={form} onSubmit={sendEmail} className="contactForm">
               <div>
-                <label htmlFor="from_name" className="contactForm__label">Full Name:</label>
+                <label htmlFor="from_name" className="contactForm__label">
+                  Full Name:
+                </label>
                 <br />
                 <input
                   type="text"
                   id="from_name"
                   name="from_name"
                   required
-                  autofocus
+                  autoFocus
                   placeholder="Your Full Name..."
                   className="contactForm__input"
                 />
               </div>
               <div>
-                <label htmlFor="from_email" className="contactForm__label">Email:</label>
+                <label htmlFor="from_email" className="contactForm__label">
+                  Email:
+                </label>
                 <br />
                 <input
                   type="email"
@@ -93,11 +98,13 @@ const Contact = () => {
                 />
               </div>
               <div>
-                <label htmlFor="message" className="contactForm__label">Message:</label>
+                <label htmlFor="message" className="contactForm__label">
+                  Message:
+                </label>
                 <br />
                 <textarea
                   id="message"
-                  name="message"  
+                  name="message"
                   rows="3"
                   required
                   placeholder="Your Message..."

@@ -16,6 +16,7 @@ const Home = () => {
       .then((data) => {
         setVideos(data.items.map((item) => item.snippet));
         setVideoIds(data.items.map((item) => item.id.videoId));
+        console.log(data)
       })
       .catch((error) => {
         console.log(error);
@@ -23,15 +24,14 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetch(`${URL_Loading}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setVideos(data.items.map((item) => item.snippet));
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [URL_Loading]);
+      fetch(`${URL_Loading}`)
+          .then(response => response.json())
+          .then(data => {
+              setVideos(data.items.map((item, index) =>  item.snippet[index] ))
+          }).catch((error) => {
+              console.log(error);
+          })
+  }, [URL_Loading])
 
   // do not delete above useEffect - its commented to save api
 
@@ -54,7 +54,7 @@ const Home = () => {
         <div className="videos-grid">
           {videos.map((video, index) => {
             return (
-              <div className="thumbnail" key={videoIds[index]}>
+              <div className="thumbnail" key={index}>
                 <Link to={`/videos/${videoIds[index]}`}>
                   {" "}
                   <img src={video.thumbnails.medium.url} alt="" />

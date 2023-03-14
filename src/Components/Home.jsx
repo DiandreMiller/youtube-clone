@@ -56,8 +56,10 @@ const Home = () => {
           {videos.map((video, index)=>{
             return (
               <div className="thumbnail" key={videoIds[index]}>
-               <img src={video.thumbnails.medium.url} alt="" />
-               <Link to={`/videos/${videoIds[index]}`}>{video.title}</Link>
+                <Link
+                  to={`/videos/${videoIds[index]}`}> <img src={video.thumbnails.medium.url} alt="" />
+                  <h3>{video.title}</h3>
+                </Link>
               </div>  
             )
           })}

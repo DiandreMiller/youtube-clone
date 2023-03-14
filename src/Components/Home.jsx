@@ -60,6 +60,10 @@ const Home = () => {
           <button className="search-option-button">Programming</button>
           <button className="search-option-button">Gaming</button>
           <button className="search-option-button">Awards</button>
+          <button className="search-option-button">Auditions</button>
+          <button className="search-option-button">Comedy</button>
+          <button className="search-option-button">Baseball</button>
+          <button className="search-option-button">Drawing</button>
         </div>
 
         <div className="videos-grid">

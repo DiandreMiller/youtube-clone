@@ -74,7 +74,7 @@ function App() {
           )}
           <Routes>
             {loading ? null : <Route path="/" element={<Home />} />}
-            <Route path="/about" element={<About />} />
+            {loading ? null : <Route path="/about" element={<About />} />}
             {loading ? null : (
               <Route
                 path="/contact"

@@ -27,16 +27,15 @@ export const ThemeContext = createContext("null");
 
 function App() {
   const [modal, setModal] = useState(false);
-   //Loading Spinner
-   const [loading, setLoading] = useState(true);
-   const [theme, setTheme] = useState("light");
+  //Loading Spinner
+  const [loading, setLoading] = useState(true);
+  const [theme, setTheme] = useState("light");
   //  const [userSearch, setUserSearch] = useState(false);
-
 
   const toggleModal = () => {
     setModal(!modal);
   };
- 
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -56,16 +55,16 @@ function App() {
   };
 
   return (
-     <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className={theme}>
         <BrowserRouter>
           {loading ? (
-            <div>
-              <h1>Time to Indulge</h1>
+            <div className="loading__timer">
+              <h1 className="loadingTimer__title">Time to Indulge</h1>
               <ClockLoader
                 loading={loading}
                 color="#d636a9"
-                size={150}
+                size={250}
                 aria-label="Loading Spinner"
                 data-testid="loader"
               />
@@ -74,20 +73,17 @@ function App() {
             <Header modal={modal} toggleModal={toggleModal} />
           )}
           <Routes>
+            {loading ? null : <Route path="/" element={<Home />} />}
+            {loading ? null : <Route path="/about" element={<About />} />}
             {loading ? null : (
               <Route
-                path="/"
-                element={<Home/>}
+                path="/contact"
+                element={<Contact modal={modal} toggleModal={toggleModal} />}
               />
             )}
-            <Route path="/about" element={<About />} />
             {loading ? null : (
-              <Route path="/contact" element={<Contact modal={modal} toggleModal={toggleModal} />}
-              />
+              <Route path="/videos/:id" element={<ShowVideo />} />
             )}
-             {loading ? null : (
-            <Route path="/videos/:id" element={<ShowVideo/>}/>
-             )}
           </Routes>
         </BrowserRouter>
       </div>
@@ -95,5 +91,3 @@ function App() {
   );
 }
 export default App;
-
-

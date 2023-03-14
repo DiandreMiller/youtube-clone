@@ -2,13 +2,6 @@ body.active-modal {
   overflow-y: hidden;
 }
 
-.btn-modal {
-  padding: 10px 20px;
-  display: block;
-  margin: 100px auto 0;
-  font-size: 18px;
-}
-
 .modal,
 .overlay {
   width: 100vw;
@@ -53,11 +46,11 @@ body.active-modal {
   border-radius: 50%;
 }
 
-.modal-content form div {
+.modal-content .contactForm div {
   margin-bottom: 20px;
 }
 
-.modal-content label {
+.modal-content .contactForm__label {
   font-size: 18px;
   display: block;
   margin-bottom: 5px;
@@ -68,8 +61,7 @@ body.active-modal {
   text-align: center;
 }
 
-.modal-content input,
-.modal-content textarea {
+.modal-content .contactForm__input {
   width: 100%;
   padding: 8px;
   font-size: 18px;
@@ -81,8 +73,7 @@ body.active-modal {
   outline: none;
 }
 
-.modal-content input:focus,
-.modal-content textarea:focus {
+.modal-content .contactForm__input:focus{
   background-color: #fff;
 }
 

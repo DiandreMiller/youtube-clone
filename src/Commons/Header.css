@@ -3,6 +3,55 @@
   margin: 0;
 }
 
+.light {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Dark mode */
+.dark {
+  background-color: #121212;
+  color: #c7c7c7;
+}
+
+/* Menu items in light mode */
+.menu__items.light {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Menu items in dark mode */
+.menu__items.dark {
+  background-color: #121212;
+  color: #c7c7c7;
+}
+
+/* Light mode styles */
+.menu__items.light .menu__item {
+  color: black;
+}
+
+.menu__items.light .menu__item i {
+  color: gray;
+}
+
+/* Dark mode styles */
+.menu__items.dark .menu__item {
+  color: #c7c7c7;
+}
+
+.menu__items.dark .menu__item i {
+  color: lightgray;
+}
+
+.light .icon__link i {
+  color: black;
+}
+
+.dark .icon__link i {
+  color: lightgray;
+}
+
 header {
   width: 100%;
   height: 70px;
@@ -23,7 +72,7 @@ header {
 
 .burger-bar {
   width: 4em;
-  height: 0.2em;
+  height: 0.5em;
   background-color: #aeabab;
   border-radius: 0.5em;
   padding:4px;
@@ -35,7 +84,7 @@ header {
 /* ----- animations--------- */
 /* clicked */
 .burger-bar.clicked:nth-child(1) {
-  transform: rotate(45deg) translate(0.75em, 1.25em);
+  transform: rotate(45deg) translate(0.75em, 1.15em);
   transition: ease-out 0.5s;
 }
 
@@ -45,7 +94,7 @@ header {
 }
 
 .burger-bar.clicked:nth-child(3) {
-  transform: rotate(135deg) translate(-0.5em, 1em);
+  transform: rotate(135deg) translate(0em, .67em);
   transition: ease-out 0.5s;
 }
 

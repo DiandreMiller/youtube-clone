@@ -12,9 +12,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "./Commons/Header";
 import Home from "./Components/Home";
-import Video from "./Components/Video";
 import About from "./Components/About";
 import Contact from "./Components/Contact";
+import ShowVideo from "./Components/ShowVideo";
 
 //Spinner
 
@@ -27,26 +27,26 @@ export const ThemeContext = createContext("null");
 
 function App() {
   const [modal, setModal] = useState(false);
+   //Loading Spinner
+   const [loading, setLoading] = useState(true);
+   const [theme, setTheme] = useState("light");
+  //  const [userSearch, setUserSearch] = useState(false);
+
 
   const toggleModal = () => {
     setModal(!modal);
   };
-  //Loading Spinner
-  const [loading, setLoading] = useState(true);
-
+ 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
       setTimeout(() => {
         setLoading(false);
       });
-    }, 3000);
+    }, 1000);
   }, []);
 
   //Light/Dark Theme
-
-  const [theme, setTheme] = useState("light");
-
   const toggleTheme = () => {
     if (theme === "light") {
       setTheme("dark");
@@ -55,22 +55,8 @@ function App() {
     }
   };
 
-  //Home or Search
-
-  const [userSearch, setUserSearch] = useState(false);
-
-  // const handleUserSearch = () => {
-  //   setUserSearch(!userSearch);
-  // };
-
-  // Lifting State to Video and Home
-
-  const [videos, setVideos] = useState([]);
-
-  console.log("videos", videos);
-
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className={theme}>
         <BrowserRouter>
           {loading ? (
@@ -87,32 +73,21 @@ function App() {
           ) : (
             <Header modal={modal} toggleModal={toggleModal} />
           )}
-
-          {/* {loading ? null : <Video />} */}
-          {loading ? (
-            <Video videos={videos} setVideos={setVideos} />
-          ) : userSearch ? (
-            <Home videos={videos} setVideos={setVideos} />
-          ) : (
-            <Video videos={videos} setVideos={setVideos} />
-          )}
-          {/* {userSearch ? <Video/> : <Home/>} */}
-          
-
           <Routes>
             {loading ? null : (
               <Route
                 path="/"
-                element={<Home videos={videos} setVideos={setVideos} />}
+                element={<Home/>}
               />
             )}
-            {loading ? null : <Route path="/about" element={<About />} />}
+            <Route path="/about" element={<About />} />
             {loading ? null : (
-              <Route
-                path="/contact"
-                element={<Contact modal={modal} toggleModal={toggleModal} />}
+              <Route path="/contact" element={<Contact modal={modal} toggleModal={toggleModal} />}
               />
             )}
+             {loading ? null : (
+            <Route path="/videos/:id" element={<ShowVideo/>}/>
+             )}
           </Routes>
         </BrowserRouter>
       </div>

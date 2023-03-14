@@ -3,9 +3,14 @@ import "./Header.css";
 import logo from "../Images/YouTube_Logo.svg";
 import { Link } from "react-router-dom";
 import ReactSwitch from "react-switch";
+import FutureWorks from "../Components/FutureWorks";
 
 const Header = ({ modal, toggleModal }) => {
+  const [isModalMenuOpen, setIsModalMenuOpen] = useState(false);
   const [isMenuClicked, setIsMenuClicked] = useState(false);
+  const handleMenuClick = () => {
+    setIsModalMenuOpen(true);
+  };
 
   const handleContactClick = () => {
     toggleModal();
@@ -30,25 +35,25 @@ const Header = ({ modal, toggleModal }) => {
         </Link>
       </li>
       <li>
-        <Link to="/trending" className="icon__link">
+        <Link to="/" className="icon__link" onClick={handleMenuClick}>
           <i className="fas fa-fire"></i>
           <span className="menu__item">Trending</span>
         </Link>
       </li>
       <li>
-        <Link to="/shorts" className="icon__link">
+        <Link to="/" className="icon__link" onClick={handleMenuClick}>
           <i className="fab fa-youtube"></i>
           <span className="menu__item">Shorts</span>
         </Link>
       </li>
       <li>
-        <Link to="/subscription" className="icon__link">
+        <Link to="/" className="icon__link" onClick={handleMenuClick}>
           <i className="fas fa-video"></i>
           <span className="menu__item">Subscriptions</span>
         </Link>
       </li>
       <li>
-        <Link to="/library" className="icon__link">
+        <Link to="/" className="icon__link" onClick={handleMenuClick}>
           <i className="fas fa-book"></i>
           <span className="menu__item">Library</span>
         </Link>
@@ -102,13 +107,18 @@ const Header = ({ modal, toggleModal }) => {
         <i className="fas fa-bell"></i>
         <i className="fas fa-user"></i>
         <div className="switch-container">
-          <ReactSwitch className="switch" checked={isDarkMode} onChange={handleModeChange} />
+          <ReactSwitch
+            className="switch"
+            checked={isDarkMode}
+            onChange={handleModeChange}
+          />
         </div>
       </div>
       <div className={`menu ${isDarkMode ? "visible dark" : "hidden light"}`}>
         <ul className={`menu__items ${isDarkMode ? "dark" : "light"}`}>
           {menuContent}
         </ul>
+        {isModalMenuOpen && <FutureWorks setIsModalMenuOpen={setIsModalMenuOpen} />}
       </div>
     </header>
   );

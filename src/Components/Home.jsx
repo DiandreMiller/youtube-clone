@@ -4,10 +4,10 @@ import FutureWorks from "./FutureWorks";
 import "./Home.css";
 
 const Home = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalMenuOpen, setIsModalMenuOpen] = useState(false);
 
   const handleButtonClick = () => {
-    setIsModalOpen(true);
+    setIsModalMenuOpen(true);
   };
   const [search, setSearch] = useState("");
   const [videos, setVideos] = useState([]);
@@ -90,7 +90,7 @@ const Home = () => {
           <button className="search-option-button" onClick={handleButtonClick}>
             Drawing
           </button>
-          {isModalOpen && <FutureWorks setIsModalOpen={setIsModalOpen} />}
+          {isModalMenuOpen && <FutureWorks setIsModalMenuOpen={setIsModalMenuOpen} />}
         </div>
 
         <div className="videos-grid">

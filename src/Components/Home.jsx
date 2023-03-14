@@ -6,7 +6,9 @@ const Home = () => {
   const [search, setSearch] = useState("");
   const [videos, setVideos] = useState([]);
   const [videoIds,setVideoIds] = useState([])
-   const URL = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=2`;
+  const URL = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=2`;
+  const URL_Loading = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=2`;
+  
 
   const handleSearch = (event) => {
     event.preventDefault();
@@ -21,15 +23,15 @@ const Home = () => {
       });
   };
   
-  // useEffect(() => {
-  //     fetch(`${URL}`)
-  //         .then(response => response.json())
-  //         .then(data => {
-  //             setVideos(data.items.map(item => item.snippet))
-  //         }).catch((error) => {
-  //             console.log(error);
-  //         })
-  // }, [])
+  useEffect(() => {
+      fetch(`${URL_Loading}`)
+          .then(response => response.json())
+          .then(data => {
+              setVideos(data.items.map((item, index) =>  item.snippet[index] ))
+          }).catch((error) => {
+              console.log(error);
+          })
+  }, [URL_Loading])
 
 // do not delete above useEffect - its commented to save api 
 

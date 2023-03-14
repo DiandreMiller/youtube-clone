@@ -34,9 +34,7 @@ const Header = ({ modal, toggleModal }) => {
   };
 
   // determine the class names for the hamburger menu and the menu based on the isMenuClicked value
-  const burgerClass = isMenuClicked
-    ? "burger-bar clicked"
-    : "burger-bar unclicked";
+  const burgerClass = isMenuClicked ? "burger-bar clicked" : "burger-bar unclicked";
   const menuClass = isMenuClicked ? "menu visible" : "menu hidden";
   const submenuClass = isSubmenuOpen ? "submenu visible" : "submenu hidden";
 

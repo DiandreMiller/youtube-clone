@@ -39,17 +39,19 @@ const Home = () => {
     <div className="video-container">
       <div className="video-wrapper">
         <form onSubmit={handleSearch}>
-          <input
-            type="text"
-            value={search}
-            onChange={(event) => setSearch(event.target.value)}
-            autoFocus
-            placeholder="Search"
-            className="search-input"
-          />
-          <button type="submit" className="search-button">
-            <i className="fa fa-search"></i>
-          </button>
+          <div class="search-container">
+            <input
+              type="text"
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              autoFocus
+              placeholder="Search"
+              className="search-input"
+            />
+            <button type="submit" className="search-button">
+              <i className="fa fa-search"></i>
+            </button>
+          </div>
         </form>
         <div className="videos-grid">
           {videos.map((video, index) => {

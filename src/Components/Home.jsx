@@ -20,6 +20,7 @@ const Home = () => {
       .then((data) => {
         setVideos(data.items.map((item) => item.snippet));
         setVideoIds(data.items.map((item) => item.id.videoId));
+        console.log(data)
       })
       .catch((error) => {
         console.log(error);
@@ -30,7 +31,8 @@ const Home = () => {
       fetch(`${URL_Loading}`)
           .then(response => response.json())
           .then(data => {
-              setVideos(data.items.map((item, index) =>  item.snippet[index] ))
+            setVideos(data.items.map((item) => item.snippet))
+            setVideoIds(data.items.map((item) => item.id.videoId))
           }).catch((error) => {
               console.log(error);
           })
@@ -57,7 +59,7 @@ const Home = () => {
         <div className="videos-grid">
           {videos.map((video, index)=>{
             return (
-              <div className="thumbnail" key={videoIds[index]}>
+              <div className="thumbnail" key={index}>
                 <Link
                   to={`/videos/${videoIds[index]}`}> <img src={video.thumbnails.medium.url} alt="" />
                   <h3>{video.title}</h3>

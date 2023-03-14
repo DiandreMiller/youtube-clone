@@ -16,7 +16,7 @@ const Home = () => {
       .then((data) => {
         setVideos(data.items.map((item) => item.snippet));
         setVideoIds(data.items.map((item) => item.id.videoId));
-        console.log(data)
+        console.log(data);
       })
       .catch((error) => {
         console.log(error);
@@ -24,16 +24,16 @@ const Home = () => {
   };
 
   useEffect(() => {
-      fetch(`${URL_Loading}`)
-          .then(response => response.json())
-          .then(data => {
-              setVideos(data.items.map((item, index) =>  item.snippet[index] ))
-          }).catch((error) => {
-              console.log(error);
-          })
-  }, [URL_Loading])
-
-  // do not delete above useEffect - its commented to save api
+    fetch(`${URL_Loading}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setVideos(data.items.map((item) => item.snippet));
+        setVideoIds(data.items.map((item) => item.id.videoId));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [URL_Loading]);
 
   return (
     <div className="video-container">

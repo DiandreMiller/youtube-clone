@@ -85,7 +85,7 @@ const Home = () => {
     <div className="video-container">
       {isError && <Error setIsError={setIsError} errorMessage={errorMessage} />}
       <div className="video-wrapper">
-        <form onSubmit={handleSearch}>
+        <form onSubmit={handleSearch} className="search__Form">
           <div className="search-container">
             <input
               type="text"

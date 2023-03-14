@@ -66,9 +66,9 @@ const Contact = () => {
           <div className="modal-content">
             <h2>Contact Us</h2>
             <br />
-            <form ref={form} onSubmit={sendEmail}>
+            <form ref={form} onSubmit={sendEmail} className="contactForm">
               <div>
-                <label htmlFor="from_name">Full Name:</label>
+                <label htmlFor="from_name" className="contactForm__label">Full Name:</label>
                 <br />
                 <input
                   type="text"
@@ -77,10 +77,11 @@ const Contact = () => {
                   required
                   autofocus
                   placeholder="Your Full Name..."
+                  className="contactForm__input"
                 />
               </div>
               <div>
-                <label htmlFor="from_email">Email:</label>
+                <label htmlFor="from_email" className="contactForm__label">Email:</label>
                 <br />
                 <input
                   type="email"
@@ -88,10 +89,11 @@ const Contact = () => {
                   name="from_email"
                   required
                   placeholder="Your Email..."
+                  className="contactForm__input"
                 />
               </div>
               <div>
-                <label htmlFor="message">Message:</label>
+                <label htmlFor="message" className="contactForm__label">Message:</label>
                 <br />
                 <textarea
                   id="message"
@@ -99,6 +101,7 @@ const Contact = () => {
                   rows="3"
                   required
                   placeholder="Your Message..."
+                  className="contactForm__input"
                 ></textarea>
               </div>
               <button className="send-modal" type="submit">

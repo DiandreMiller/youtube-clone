@@ -207,6 +207,12 @@ header {
   background-color: transparent;
 }
 
+.switch-container {
+  display: flex;
+  align-items: center;
+  margin-left: 10px; 
+}
+
 @media only screen and (max-width: 768px) {
   .header__left {
     width: 50%;

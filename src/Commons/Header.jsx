@@ -17,9 +17,7 @@ const Header = ({ modal, toggleModal }) => {
     setIsMenuClicked(!isMenuClicked); // toggle isMenuClicked to its opposite value
   };
   // determine the class names for the hamburger menu and the menu based on the isMenuClicked value
-  const burgerClass = isMenuClicked
-    ? "burger-bar clicked"
-    : "burger-bar unclicked";
+  const burgerClass = isMenuClicked ? "burger-bar clicked" : "burger-bar unclicked";
   const menuClass = isMenuClicked ? "menu visible" : "menu hidden";
 
   // determine the content for the menu based on the isMenuClicked value
@@ -91,15 +89,21 @@ const Header = ({ modal, toggleModal }) => {
         </div>
         <div className={`navbar__logo ${isDarkMode ? "dark" : "light"}`}>
           <Link to="/">
-            <img src={logo} alt="YouTube" className={isDarkMode ? "dark" : "light"} />
+            <img
+              src={logo}
+              alt="YouTube"
+              className={isDarkMode ? "dark" : "light"}
+            />
           </Link>
         </div>
-        <ReactSwitch checked={isDarkMode} onChange={handleModeChange} />
       </div>
       <div className={`navbar__rightIcons ${isDarkMode ? "dark" : "light"}`}>
         <i className="fas fa-video"></i>
         <i className="fas fa-bell"></i>
         <i className="fas fa-user"></i>
+        <div className="switch-container">
+          <ReactSwitch className="switch" checked={isDarkMode} onChange={handleModeChange} />
+        </div>
       </div>
       <div className={`menu ${isDarkMode ? "visible dark" : "hidden light"}`}>
         <ul className={`menu__items ${isDarkMode ? "dark" : "light"}`}>

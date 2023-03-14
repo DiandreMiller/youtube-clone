@@ -18,18 +18,18 @@ const Video = ({ videos, setVideos }) => {
         console.log(error);
       });
   };
-  /*
-  useEffect(() => {
-      fetch(`${URL}`)
-          .then(response => response.json())
-          .then(data => {
-              setVideos(data.items.map(item => item.id.videoId))
-          }).catch((error) => {
-              console.log(error);
-          })
-  }, [search])
+  
+  // useEffect(() => {
+  //     fetch(`${URL}`)
+  //         .then(response => response.json())
+  //         .then(data => {
+  //             setVideos(data.items.map(item => item.id.videoId))
+  //         }).catch((error) => {
+  //             console.log(error);
+  //         })
+  // }, [search])
 
-do not delete above useEffect - its commented to save api */
+//do not delete above useEffect - its commented to save api 
 
   // console.log("videos", videos);
 

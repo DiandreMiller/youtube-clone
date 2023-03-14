@@ -1,24 +1,55 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FutureWorks from "./FutureWorks";
+import Error from "./Error";
 import "./Home.css";
 
 const Home = () => {
   const [isModalMenuOpen, setIsModalMenuOpen] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [search, setSearch] = useState("");
+  const [videos, setVideos] = useState([]);
+  const [videoIds, setVideoIds] = useState([]);
+
+  const URL = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=2`;
+  const URL_Loading = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=2`;
 
   const handleButtonClick = () => {
     setIsModalMenuOpen(true);
   };
-  const [search, setSearch] = useState("");
-  const [videos, setVideos] = useState([]);
-  const [videoIds, setVideoIds] = useState([]);
-  const URL = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=2`;
-  const URL_Loading = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=2`;
 
   const handleSearch = (event) => {
     event.preventDefault();
+    if (!search) {
+      setIsError(true);
+      setErrorMessage("Please enter a search term.");
+      return;
+    }
     fetch(`${URL}`)
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          if (response.status === 403) {
+            setIsError(true);
+            setErrorMessage("Access to YouTube API is forbidden.");
+          } else if (response.status === 400) {
+            setIsError(true);
+            setErrorMessage("Bad request. Please try again later.");
+          } else if (response.status === 404) {
+            setIsError(true);
+            setErrorMessage(
+              "No videos found. Please try a different search query."
+            );
+          } else {
+            setIsError(true);
+            setErrorMessage(
+              "An error occurred while fetching data. Please try again later."
+            );
+          }
+          throw new Error(`HTTP Error: ${response.status}`);
+        }
+        return response.json();
+      })
       .then((data) => {
         setVideos(data.items.map((item) => item.snippet));
         setVideoIds(data.items.map((item) => item.id.videoId));
@@ -43,6 +74,7 @@ const Home = () => {
 
   return (
     <div className="video-container">
+      {isError && <Error setIsError={setIsError} errorMessage={errorMessage} />}
       <div className="video-wrapper">
         <form onSubmit={handleSearch}>
           <div className="search-container">
@@ -90,7 +122,9 @@ const Home = () => {
           <button className="search-option-button" onClick={handleButtonClick}>
             Drawing
           </button>
-          {isModalMenuOpen && <FutureWorks setIsModalMenuOpen={setIsModalMenuOpen} />}
+          {isModalMenuOpen && (
+            <FutureWorks setIsModalMenuOpen={setIsModalMenuOpen} />
+          )}
         </div>
 
         <div className="videos-grid">

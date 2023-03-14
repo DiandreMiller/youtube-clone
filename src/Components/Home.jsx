@@ -39,7 +39,7 @@ const Home = () => {
     <div className="video-container">
       <div className="video-wrapper">
         <form onSubmit={handleSearch}>
-          <div class="search-container">
+          <div className="search-container">
             <input
               type="text"
               value={search}
@@ -53,6 +53,15 @@ const Home = () => {
             </button>
           </div>
         </form>
+        <div className="buttons-container">
+          <button className="search-option-button">All</button>
+          <button className="search-option-button">Music</button>
+          <button className="search-option-button">Cooking</button>
+          <button className="search-option-button">Programming</button>
+          <button className="search-option-button">Gaming</button>
+          <button className="search-option-button">Awards</button>
+        </div>
+
         <div className="videos-grid">
           {videos.map((video, index) => {
             return (

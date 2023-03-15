@@ -29,12 +29,7 @@ const Header = ({ modal, toggleModal }) => {
   };
 
   const handleModeChange = (checked) => {
-    // removed checked parameter without this dark mode wont toggle
     setIsDarkMode(checked); // removed checked parameter without this dark mode wont toggle
-    setIsSubmenuOpen(true); // Open the submenu on mode change
-    setTimeout(() => {
-      setIsSubmenuOpen(false); // Close the submenu after 1 seconds
-    }, 1000);
   };
 
   // determine the class names for the hamburger menu and the menu based on the isMenuClicked value
@@ -54,28 +49,28 @@ const Header = ({ modal, toggleModal }) => {
         </Link>
       </li>
       <li>
-        <Link to="/" className="icon__link" onClick={handleMenuClick}>
+        <button className="icon__link" onClick={handleMenuClick}>
           <i className="fas fa-fire"></i>
           <span className="menu__item">Trending</span>
-        </Link>
+        </button>
       </li>
       <li>
-        <Link to="/" className="icon__link" onClick={handleMenuClick}>
+        <button className="icon__link" onClick={handleMenuClick}>
           <i className="fab fa-youtube"></i>
           <span className="menu__item">Shorts</span>
-        </Link>
+        </button>
       </li>
       <li>
-        <Link to="/" className="icon__link" onClick={handleMenuClick}>
+        <button className="icon__button" onClick={handleMenuClick}>
           <i className="fas fa-video"></i>
           <span className="menu__item">Subscriptions</span>
-        </Link>
+        </button>
       </li>
       <li>
-        <Link to="/" className="icon__link" onClick={handleMenuClick}>
+        <button className="icon__link" onClick={handleMenuClick}>
           <i className="fas fa-book"></i>
           <span className="menu__item">Library</span>
-        </Link>
+        </button>
       </li>
       <li>
         <Link to="/about" className="icon__link">
@@ -90,10 +85,7 @@ const Header = ({ modal, toggleModal }) => {
         </Link>
       </li>
       <li>
-        <div
-          className="icon__link"
-          onClick={() => setIsSubmenuOpen(!isSubmenuOpen)}
-        >
+        <div className="icon__link" onClick={() => setIsSubmenuOpen(!isSubmenuOpen)}>
           <i className="fas fa-cog"></i>
           <span className="menu__item">Settings</span>
         </div>
@@ -114,45 +106,45 @@ const Header = ({ modal, toggleModal }) => {
           </ul>
         )}
       </li>
-      <div className="subscribed__list__items">
+      <div className={`subscribed__list__items ${isDarkMode ? "dark" : "light"}`}>
         <li>
           <hr className="menu__line" />
         </li>
-          <h3>
-            <span className="menu__item">Subscribed</span>
-          </h3>
-          <div className="menu__subscribed">
-            <Link to="/" className="subscribe__link">
-              <p className="menu__subscribed-name">
-                <img
-                  className="menu__subscribed__img"
-                  src={Ana}
-                  alt="Subscribed channel 2"
-                />
-                <span>Artsy Girl</span>
-              </p>
-            </Link>
-            <Link to="/" className="subscribe__link">
-              <p className="menu__subscribed-name">
-                <img
-                  className="menu__subscribed__img"
-                  src={Ari}
-                  alt="Subscribed channel 1"
-                />
-                <span>Редакция</span>
-              </p>
-            </Link>
-            <Link to="/" className="subscribe__link">
-              <p className="menu__subscribed-name">
-                <img
-                  className="menu__subscribed__img"
-                  src={Dre}
-                  alt="Subscribed channel 3"
-                />
-                <span>Keep It 100 Dre </span>
-              </p>
-            </Link>
-          </div>
+        <h3>
+          <span className="menu__item">Subscribed</span>
+        </h3>
+        <div className="menu__subscribed">
+          <button className="subscribe__link">
+            <p className="menu__subscribed-name">
+              <img
+                className="menu__subscribed__img"
+                src={Ana}
+                alt="Subscribed channel 2"
+              />
+              <span>Artsy Girl</span>
+            </p>
+          </button>
+          <button className="subscribe__link">
+            <p className="menu__subscribed-name">
+              <img
+                className="menu__subscribed__img"
+                src={Ari}
+                alt="Subscribed channel 1"
+              />
+              <span>Редакция</span>
+            </p>
+          </button>
+          <button className="subscribe__link">
+            <p className="menu__subscribed-name">
+              <img
+                className="menu__subscribed__img"
+                src={Dre}
+                alt="Subscribed channel 3"
+              />
+              <span>Keep It 100 Dre </span>
+            </p>
+          </button>
+        </div>
         <li>
           <hr className="menu__line" />
         </li>

@@ -5,12 +5,7 @@ import Comments from "./Comments";
 
 
 export default function ShowVideo() {
-  
-
     const { id } = useParams();
-
-    
-
     return (
         <div className="showVideo">
         <div className="video">

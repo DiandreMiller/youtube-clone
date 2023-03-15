@@ -4,6 +4,9 @@ import logo from "../Images/YouTube_Logo.svg";
 import { Link } from "react-router-dom";
 import ReactSwitch from "react-switch";
 import FutureWorks from "../Components/FutureWorks";
+import Ari from "../Images/Ari.png";
+import Ana from "../Images/Ana.png";
+import Dre from "../Images/Dre.png";
 
 const Header = ({ modal, toggleModal }) => {
   const [isModalMenuOpen, setIsModalMenuOpen] = useState(false);
@@ -20,11 +23,13 @@ const Header = ({ modal, toggleModal }) => {
     setIsMenuClicked(false);
   };
 
-  const updateMenu = () => { // function to update the menu state
+  const updateMenu = () => {
+    // function to update the menu state
     setIsMenuClicked(!isMenuClicked); // toggle isMenuClicked to its opposite value
   };
 
-  const handleModeChange = () => { // removed checked parameter without this dark mode wont toggle
+  const handleModeChange = () => {
+    // removed checked parameter without this dark mode wont toggle
     setIsDarkMode(); // removed checked parameter without this dark mode wont toggle
     setIsSubmenuOpen(true); // Open the submenu on mode change
     setTimeout(() => {
@@ -108,6 +113,49 @@ const Header = ({ modal, toggleModal }) => {
             </li>
           </ul>
         )}
+      </li>
+      <li>
+        <hr className="menu__line" />
+      </li>
+      <li>
+        <h3>
+          <span className="menu__item">Subscribed</span>
+        </h3>
+        <div className="menu__subscribed">
+          <Link to="/" className="subscribe__link">
+            <p className="menu__subscribed-name">
+              <img
+                className="menu__subscribed__img"
+                src={Ana}
+                alt="Subscribed channel 2"
+              />
+              <span>Artsy Girl</span>
+            </p>
+          </Link>
+          <Link to="/" className="subscribe__link">
+            <p className="menu__subscribed-name">
+              <img
+                className="menu__subscribed__img"
+                src={Ari}
+                alt="Subscribed channel 1"
+              />
+              <span>Редакция</span>
+            </p>
+          </Link>
+          <Link to="/" className="subscribe__link">
+            <p className="menu__subscribed-name">
+              <img
+                className="menu__subscribed__img"
+                src={Dre}
+                alt="Subscribed channel 3"
+              />
+              <span>Keep It 100 Dre </span>
+            </p>
+          </Link>
+        </div>
+      </li>
+      <li>
+        <hr className="menu__line" />
       </li>
     </ul>
   );

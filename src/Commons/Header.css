@@ -153,6 +153,7 @@ header {
   display: flex;
   justify-content: flex-end;
   width: 25%;
+  cursor: pointer;
 }
 
 .navbar__rightIcons i {
@@ -178,6 +179,7 @@ header {
 .navbar__rightIcons i:hover {
   background-color: rgb(242, 242, 242);
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .menu__items li:hover {

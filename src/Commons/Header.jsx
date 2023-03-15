@@ -28,9 +28,9 @@ const Header = ({ modal, toggleModal }) => {
     setIsMenuClicked(!isMenuClicked); // toggle isMenuClicked to its opposite value
   };
 
-  const handleModeChange = () => {
+  const handleModeChange = (checked) => {
     // removed checked parameter without this dark mode wont toggle
-    // setIsDarkMode(); // removed checked parameter without this dark mode wont toggle
+    setIsDarkMode(checked); // removed checked parameter without this dark mode wont toggle
     setIsSubmenuOpen(true); // Open the submenu on mode change
     setTimeout(() => {
       setIsSubmenuOpen(false); // Close the submenu after 1 seconds

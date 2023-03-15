@@ -1,11 +1,11 @@
-* {
+*{
   box-sizing: border-box;
   margin: 0;
 }
 
 .light {
-  /* background-color: #fff; */
   color: #000;
+  
 }
 
 /* Dark mode */
@@ -16,7 +16,6 @@
 
 /* Menu items in light mode */
 .menu__items.light {
-  /* background-color: #fff; */
   color: #000;
 }
 
@@ -65,7 +64,7 @@ header {
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  width: 25%;
+  width: 35%;
   justify-content: flex-start;
   margin-right: 1em;
 }
@@ -79,6 +78,7 @@ header {
   margin-bottom: 5px;
   transition: transform 0.5s ease-out, opacity 0.5s ease-out,
     background-color 0.5s ease-out;
+    
 }
 
 /* ----- animations--------- */
@@ -111,10 +111,12 @@ header {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 20px;
+  
 }
 
 .menu__items li {
   margin-bottom: 1em;
+  
 }
 
 .menu {
@@ -123,24 +125,27 @@ header {
   left: 0;
   right: 0;
   width: 15%;
-  height: calc(100vh - 70px);
+  /* height: calc(100vh - 70px); */
   z-index: 1000;
   overflow-y: auto;
   transition: transform 0.3s ease-in-out;
+
 }
 
 .menu.visible {
   transform: translateX(0%);
+  
 }
 
 .header__left {
   display: flex;
   align-items: center;
-  width: 50%;
+  width: 15%;
+  
 }
 
 .navbar__logo {
-  margin-left: -100px;
+  margin-left: 50px;
   width: 100px;
   height: 30px;
 }
@@ -155,6 +160,7 @@ header {
   display: flex;
   justify-content: flex-end;
   width: 25%;
+  
 }
 
 .navbar__rightIcons i {
@@ -286,6 +292,8 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+/* media query - do not delete
+
 @media only screen and (max-width: 768px) {
   .header__left {
     width: 50%;
@@ -327,4 +335,4 @@ input:checked + .slider:before {
   .menu__items li {
     margin-bottom: 2em;
   }
-}
+} */

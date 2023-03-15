@@ -28,7 +28,8 @@ const Header = ({ modal, toggleModal }) => {
     setIsMenuClicked(!isMenuClicked); // toggle isMenuClicked to its opposite value
   };
 
-  const handleModeChange = () => { // removed checked parameter without this dark mode wont toggle
+  const handleModeChange = () => {
+    // removed checked parameter without this dark mode wont toggle
     // setIsDarkMode(); // removed checked parameter without this dark mode wont toggle
     setIsSubmenuOpen(true); // Open the submenu on mode change
     setTimeout(() => {
@@ -113,49 +114,49 @@ const Header = ({ modal, toggleModal }) => {
           </ul>
         )}
       </li>
-      <li>
-        <hr className="menu__line" />
-      </li>
-      <li>
-        <h3>
-          <span className="menu__item">Subscribed</span>
-        </h3>
-        <div className="menu__subscribed">
-          <Link to="/" className="subscribe__link">
-            <p className="menu__subscribed-name">
-              <img
-                className="menu__subscribed__img"
-                src={Ana}
-                alt="Subscribed channel 2"
-              />
-              <span>Artsy Girl</span>
-            </p>
-          </Link>
-          <Link to="/" className="subscribe__link">
-            <p className="menu__subscribed-name">
-              <img
-                className="menu__subscribed__img"
-                src={Ari}
-                alt="Subscribed channel 1"
-              />
-              <span>Редакция</span>
-            </p>
-          </Link>
-          <Link to="/" className="subscribe__link">
-            <p className="menu__subscribed-name">
-              <img
-                className="menu__subscribed__img"
-                src={Dre}
-                alt="Subscribed channel 3"
-              />
-              <span>Keep It 100 Dre </span>
-            </p>
-          </Link>
-        </div>
-      </li>
-      <li>
-        <hr className="menu__line" />
-      </li>
+      <div className="subscribed__list__items">
+        <li>
+          <hr className="menu__line" />
+        </li>
+          <h3>
+            <span className="menu__item">Subscribed</span>
+          </h3>
+          <div className="menu__subscribed">
+            <Link to="/" className="subscribe__link">
+              <p className="menu__subscribed-name">
+                <img
+                  className="menu__subscribed__img"
+                  src={Ana}
+                  alt="Subscribed channel 2"
+                />
+                <span>Artsy Girl</span>
+              </p>
+            </Link>
+            <Link to="/" className="subscribe__link">
+              <p className="menu__subscribed-name">
+                <img
+                  className="menu__subscribed__img"
+                  src={Ari}
+                  alt="Subscribed channel 1"
+                />
+                <span>Редакция</span>
+              </p>
+            </Link>
+            <Link to="/" className="subscribe__link">
+              <p className="menu__subscribed-name">
+                <img
+                  className="menu__subscribed__img"
+                  src={Dre}
+                  alt="Subscribed channel 3"
+                />
+                <span>Keep It 100 Dre </span>
+              </p>
+            </Link>
+          </div>
+        <li>
+          <hr className="menu__line" />
+        </li>
+      </div>
     </ul>
   );
 

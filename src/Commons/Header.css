@@ -185,6 +185,11 @@ header {
   border-radius: 0.5rem;
 }
 
+.subscribed__list__items p:hover{
+  background-color: rgb(242, 242, 242);
+  border-radius: 0.5rem;
+}
+
 .icon__link,
 .subscribe__link {
   text-decoration: none;

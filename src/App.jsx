@@ -25,6 +25,8 @@ import ClockLoader from "react-spinners/ClockLoader";
 import { createContext } from "react";
 export const ThemeContext = createContext("null");
 
+
+
 function App() {
   const [modal, setModal] = useState(false);
   //Loading Spinner

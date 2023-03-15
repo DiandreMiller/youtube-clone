@@ -4,7 +4,6 @@
 }
 
 .light {
-  /* background-color: #fff; */
   color: #000;
 }
 
@@ -16,8 +15,8 @@
 
 /* Menu items in light mode */
 .menu__items.light {
-  /* background-color: #fff; */
   color: #000;
+  
 }
 
 /* Menu items in dark mode */

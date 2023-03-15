@@ -24,8 +24,8 @@ const Header = ({ modal, toggleModal }) => {
     setIsMenuClicked(!isMenuClicked); // toggle isMenuClicked to its opposite value
   };
 
-  const handleModeChange = () => {
-    setIsDarkMode();
+  const handleModeChange = () => { // removed checked parameter without this dark mode wont toggle
+    setIsDarkMode(); // removed checked parameter without this dark mode wont toggle
     setIsSubmenuOpen(true); // Open the submenu on mode change
     setTimeout(() => {
       setIsSubmenuOpen(false); // Close the submenu after 1 seconds
@@ -33,7 +33,9 @@ const Header = ({ modal, toggleModal }) => {
   };
 
   // determine the class names for the hamburger menu and the menu based on the isMenuClicked value
-  const burgerClass = isMenuClicked ? "burger-bar clicked" : "burger-bar unclicked";
+  const burgerClass = isMenuClicked
+    ? "burger-bar clicked"
+    : "burger-bar unclicked";
   const menuClass = isMenuClicked ? "menu visible" : "menu hidden";
   const submenuClass = isSubmenuOpen ? "submenu visible" : "submenu hidden";
 

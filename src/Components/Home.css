@@ -1,9 +1,15 @@
+body {
+  margin: 0;
+  
+}
+
 .video-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-left: 250px;
   margin-right: 50px;
+  
 }
 
 .video-wrapper {

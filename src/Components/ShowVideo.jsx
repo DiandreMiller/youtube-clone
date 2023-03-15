@@ -1,38 +1,46 @@
 import YouTube from "react-youtube";
 import "./ShowVideo.css";
 import { useParams} from "react-router-dom";
-import { useState } from 'react';
-
-// firebase imports
-
-import { collection, doc, setDoc } from "firebase/firestore";
-import db from "../firebase_setup/db";
-
+import { useState, useEffect } from 'react';
+import { firestore } from "../firebase_setup/firestore";
+import { addDoc, collection, getDocs } from "@firebase/firestore"
 
 export default function ShowVideo() {
-    const [name , setName] = useState("");
- 	const [comment , setComment] = useState("");
+    const [comments, setComments] = useState([]);
 
-   
-   
-    // const dataRef = useRef()
-    const { id } = useParams();
+    const handleSubmit = (commentData, nameData) => {
+        const ref = collection(firestore, "comments") // Firebase creates this automatically
+
+        let data = {
+            comment: commentData,
+            name: nameData
+        }
+        try {
+            addDoc(ref, data);
+            fetchComments(firestore);
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
     const submitHandler = (e) => {
         e.preventDefault()
-        // handleSubmit(dataRef.current.value)
-        // dataRef.current.value = ""
-       db.collection("comments").add({
-            			Name: name,
-            			Comment: comment
-            		})
-            		.then((docRef) => {
-            			alert("Comment Successfully Submitted");
-            		})
-            		.catch((error) => {
-            			console.error("Error adding document: ", error);
-            		});
-            	}
+        handleSubmit(e.target[1].value, e.target[0].value)
+    }
+
+    async function fetchComments(firestore) {
+        const commentsCol = collection(firestore, 'comments');
+        const commentsSnapshot = await getDocs(commentsCol);
+        const commentsList = commentsSnapshot.docs.map(doc => doc.data());
+        setComments(commentsList);
+    }
+
+    useEffect(() => {
+        fetchComments(firestore);
+    }, []);
+
+    const { id } = useParams();
+
     
 
     return (
@@ -40,19 +48,20 @@ export default function ShowVideo() {
         <div className="video">
             <YouTube videoId={id} />
         </div>
-            {/* <form onSubmit={submitHandler}>
-                <input type="text" ref={dataRef} />
-                <button type="submit">Save</button>
-            </form> */}
-            <form onSubmit={(e) => {submitHandler(e)}}>
-					<input type="text" placeholder="your name"
-					onChange={(e)=>{setName(e.target.value)}} />
-					<br/><br/>
-					<input type="text" placeholder="your comment"
-					onChange={(e)=>{setComment(e.target.value)}}/>
-					<br/><br/>
-                    <button type="submit">Submit</button>
-				</form>
+            <div className="comments">
+                <form onSubmit={submitHandler}>
+                    <input type="text" />
+                    <textarea type="text" />
+                    <button type="submit">Save</button>
+                </form>
+                <h2>Comments</h2>
+                <ul>
+                    {comments.map((comment, index) => (
+                        <li key={index}>{comment.name} says, {comment.comment}</li>
+                    ))}
+                </ul>
+            </div> 
         </div>
     )
 }
+

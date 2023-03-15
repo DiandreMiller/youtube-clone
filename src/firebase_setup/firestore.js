@@ -1,6 +1,8 @@
-// Import the functions you need from the SDKs you need
+// // Import the functions you need from the SDKs you need
+// import { initializeApp } from "firebase/app";
+// import { getFirestore } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore } from "@firebase/firestore"
 
 
 const firebaseConfig = {
@@ -13,10 +15,8 @@ const firebaseConfig = {
     measurementId: "G-9FE21QWV9G"
     };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
 
-// Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(app);
  
-export default db;
+
+    const app = initializeApp(firebaseConfig);
+    export const firestore = getFirestore(app)

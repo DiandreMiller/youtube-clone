@@ -1,9 +1,12 @@
 import "../DarkMode.css" 
+import MeetTheDevelopers from "../Images/MeetTheDevelopers.jpeg"
 
 
 const About = () => {
     return (
-        <h1 className="theme">poop</h1>
+        <div>
+            <img className="developers" src={MeetTheDevelopers} alt="Meet The Developers" />
+        </div>
     )
 }
 

@@ -12,8 +12,8 @@ const Home = () => {
   const [videos, setVideos] = useState([]);
   const [videoIds, setVideoIds] = useState([]);
 
-  // const URL = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=2`;
-  // const URL_Loading = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=2`;
+   const URL = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=1`;
+   const URL_Loading = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=1`;
 
   const handleButtonClick = () => {
     setIsModalMenuOpen(true);
@@ -60,26 +60,26 @@ const Home = () => {
       });
   };
 
-  // useEffect(() => {
-  //   fetch(`${URL_Loading}`)
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         setIsError(true);
-  //         setErrorMessage(
-  //           "An error occurred while fetching data. Please try again later."
-  //         );
-  //         throw new Error(`HTTP Error: ${response.status}`);
-  //       }
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       setVideos(data.items.map((item) => item.snippet));
-  //       setVideoIds(data.items.map((item) => item.id.videoId));
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, [URL_Loading]);
+  useEffect(() => {
+    fetch(`${URL_Loading}`)
+      .then((response) => {
+        if (!response.ok) {
+          setIsError(true);
+          setErrorMessage(
+            "An error occurred while fetching data. Please try again later."
+          );
+          throw new Error(`HTTP Error: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setVideos(data.items.map((item) => item.snippet));
+        setVideoIds(data.items.map((item) => item.id.videoId));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [URL_Loading]);
 
   return (
     <div className="video-container">

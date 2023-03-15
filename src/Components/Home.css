@@ -9,7 +9,7 @@ body {
   align-items: center;
   margin-left: 250px;
   margin-right: 50px;
-  
+  margin-top: -65px;
 }
 
 .video-wrapper {
@@ -49,6 +49,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 60%;
+  
 }
 
 .search-button:hover {

@@ -15,6 +15,7 @@ const Header = ({ modal, toggleModal }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const handleMenuClick = () => {
+    console.log("hi")
     setIsModalMenuOpen(true);
   };
 
@@ -23,12 +24,12 @@ const Header = ({ modal, toggleModal }) => {
     setIsMenuClicked(false);
   };
 
-  const updateMenu = () => {
-    // function to update the menu state
+  const updateMenu = () => {// function to update the menu state
     setIsMenuClicked(!isMenuClicked); // toggle isMenuClicked to its opposite value
   };
 
   const handleModeChange = (checked) => {
+    // setIsModalMenuOpen(true);
     setIsDarkMode(checked);
   };
 
@@ -36,7 +37,7 @@ const Header = ({ modal, toggleModal }) => {
   const burgerClass = isMenuClicked
     ? "burger-bar clicked"
     : "burger-bar unclicked";
-  const menuClass = isMenuClicked ? "menu visible" : "menu hidden";
+  // const menuClass = isMenuClicked ? "menu visible" : "menu hidden";
   const submenuClass = isSubmenuOpen ? "submenu visible" : "submenu hidden";
 
   // determine the content for the menu
@@ -92,13 +93,10 @@ const Header = ({ modal, toggleModal }) => {
           </Link>
         </li>
         <li>
-          <button
-            className="icon__link option-button"
-            onClick={handleContactClick}
-          >
+        <Link to="/contact" className="icon__link" onClick={handleContactClick}>
             <i className="fas fa-envelope"></i>
             <span className="menu__item">Contact</span>
-          </button>
+          </Link>
         </li>
         <li>
           <div

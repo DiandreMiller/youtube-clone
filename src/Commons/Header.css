@@ -3,11 +3,12 @@
   margin: 0;
 }
 
+
 .light {
   color: #000;
 }
 
-/* Dark mode */
+
 .dark {
   background-color: #121212;
   color: #c7c7c7;
@@ -17,18 +18,15 @@
   color: #c7c7c7;
 }
 
-/* Menu items in light mode */
 .menu__items.light {
   color: #000;
 }
 
-/* Menu items in dark mode */
 .menu__items.dark {
   background-color: #121212;
   color: #c7c7c7;
 }
 
-/* Light mode styles */
 .menu__items.light .menu__item {
   color: black;
 }
@@ -37,7 +35,6 @@
   color: gray;
 }
 
-/* Dark mode styles */
 .menu__items.dark .menu__item {
   color: #c7c7c7;
 }
@@ -83,8 +80,6 @@ header {
     background-color 0.5s ease-out;
 }
 
-/* ----- animations--------- */
-/* clicked */
 .burger-bar.clicked:nth-child(1) {
   transform: rotate(45deg) translate(0.75em, 1.15em);
   transition: ease-out 0.5s;
@@ -100,7 +95,6 @@ header {
   transition: ease-out 0.5s;
 }
 
-/* unclicked */
 .burger-bar.unclicked {
   transform: rotate(0) translate(0);
   transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
@@ -286,7 +280,7 @@ input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
-}
+} 
 
 .slider.round {
   border-radius: 34px;

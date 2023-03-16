@@ -16,8 +16,8 @@ body.active-modal {
 
 .futureWorks__modal {
   z-index: 9999;
-  border: 2px solid red;
-  background-color: yellow;
+  /* border: 2px solid red;
+  background-color: yellow; */
 }
 
 .futureWorks__ModalContent h2 {
@@ -41,8 +41,8 @@ body.active-modal {
   border-radius: 15px;
   /* max-width: 500px;
   min-width: 250px; */
-  width: 500px;
-  height: 250px;
+  width: 400px;
+  height: 150px;
 }
 
 .futureWorks__CloseModal {

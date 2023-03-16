@@ -15,12 +15,10 @@ const Header = ({ modal, toggleModal }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const handleMenuClick = () => {
-    console.log("hi");
     setIsModalMenuOpen(true);
   };
 
   const handleContactClick = () => {
-    console.log("idk")
     toggleModal();
     setIsMenuClicked(false);
   };
@@ -31,7 +29,6 @@ const Header = ({ modal, toggleModal }) => {
   };
 
   const handleModeChange = (checked) => {
-    console.log("dark")
     setIsDarkMode(checked);
   };
 

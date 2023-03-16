@@ -4,17 +4,34 @@ body.active-modal {
 
 .futureWorks__modal,
 .futureWorks__overlay {
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
+  width: 500px;
+  height: 250px;
   right: 0;
   bottom: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   position: fixed;
 }
 
-.futureWorks__overlay {
-  /* background: rgba(49, 49, 49, 0.8); */
+
+
+.dark-mode .futureWorks__modal{
+  width: 500px;
+  height: 250px;
+  right: 0;
+  bottom: 0;
+  top: 70%;
+  left: 70%;
+  transform: translate(-70%, -70%);
+  position: fixed;
+  background-color: blue;
+}
+
+.futureWorks__modal {
+  z-index: 9999;
+  border: 2px solid red;
+  background-color: yellow;
 }
 
 .futureWorks__ModalContent h2 {
@@ -36,8 +53,10 @@ body.active-modal {
   background: #f1f1f1;
   padding: 14px 28px;
   border-radius: 15px;
-  max-width: 800px;
-  min-width: 400px;
+  /* max-width: 500px;
+  min-width: 250px; */
+  width: 500px;
+  height: 250px;
 }
 
 .futureWorks__CloseModal {
@@ -55,3 +74,5 @@ body.active-modal {
   background-color: rgb(227, 227, 227);
   border-radius: 50%;
 }
+
+

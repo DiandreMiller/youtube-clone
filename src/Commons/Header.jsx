@@ -219,5 +219,4 @@ const Header = ({ modal, toggleModal }) => {
     </header>
   );
 };
-
 export default Header;

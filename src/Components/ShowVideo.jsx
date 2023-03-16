@@ -19,6 +19,7 @@ const ShowVideo = ({handleSearch, errorMessage,
 
     return (
         <div className="showVideo">
+
             <div className="video">
             <div className="video-container">
       {isError && <Error setIsError={setIsError} errorMessage={errorMessage} />}
@@ -78,8 +79,9 @@ const ShowVideo = ({handleSearch, errorMessage,
               <div className="videos-grid">
 
             <YouTube videoId={id} />
+
         </div>
-        <Comments/>
+        <Comments id={id}/>
         </div>
                
           {videos ? videos.map((video, index) => {

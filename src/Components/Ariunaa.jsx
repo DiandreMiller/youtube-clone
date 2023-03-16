@@ -28,8 +28,9 @@ const Ariunaa = () => {
                 restoring balance to our environment. Our world faces numerous challenges,
                 including climate change and the threat of nuclear conflicts. I believe that
                 it’s our responsibility to take action and do our part in creating a more
-                sustainable and equitable future. Check out my <a href="https://www.linkedin.com/in/ariunaa-myagmar/" > LinkedIn profile </a>
-                and my <a href='https://github.com/ariunaamy'> GitHub </a> to see what I’ve been working on.
+                sustainable and equitable future. 
+                <br /> <br />
+                Check out my <a href="https://www.linkedin.com/in/ariunaa-myagmar/" target="_blank"> LinkedIn </a> and <a href='https://github.com/ariunaamy' target="_blank"> GitHub </a> to see what I’ve been working on.
             </p>
         </div>
     )

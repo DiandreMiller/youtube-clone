@@ -33,8 +33,10 @@ const Vandhana = () => {
 
                 If you're looking for a developer who is dedicated, and passionate about
                 coding, I would love to work with you. Let's collaborate to bring your software
-                development project to life! Check out my <a href="https://www.linkedin.com/in/vandhanamohan/" > LinkedIn profile </a>
-                and my <a href='https://github.com/Vandhana-Mohan'> GitHub </a> to see what I’ve been working on.
+                development project to life! 
+                
+                <br /> <br />
+                Check out my <a href="https://www.linkedin.com/in/vandhanamohan/" target="_blank"> LinkedIn</a> and <a href='https://github.com/Vandhana-Mohan' target="_blank"> GitHub </a> to see what I’ve been working on.
             </p>
         </div>
     )

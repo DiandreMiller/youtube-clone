@@ -56,6 +56,8 @@ const Home = ({
       });
   }, [search, maxResults, safeSearch, searchBy]);
 
+  console.log(URL)
+
   return (
     <div className="video-container">
       {isError && <Error setIsError={setIsError} errorMessage={errorMessage} />}

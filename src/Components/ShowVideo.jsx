@@ -15,7 +15,7 @@ const ShowVideo = ({handleSearch, errorMessage,
   const { id } = useParams();
 
   
-  console.log(videos)
+  console.log(id)
 
     return (
         <div className="showVideo">

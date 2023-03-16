@@ -13,6 +13,10 @@
   color: #c7c7c7;
 }
 
+.dark p {
+  color: #c7c7c7;
+}
+
 /* Menu items in light mode */
 .menu__items.light {
   color: #000;
@@ -315,6 +319,11 @@ input:checked + .slider:before {
   margin-right: 10px;
 }
 
+.menu__subscribed__p {
+  font-size: 16px;
+
+}
+
 .menu__items li.subscribed__menu-item:hover {
   background-color: transparent;
 }
@@ -327,6 +336,7 @@ input:checked + .slider:before {
   font-size: 16px;
   text-decoration: none;
   cursor: pointer;
+  border:2px solid blue;
 }
 
 .subscribe-button {
@@ -335,6 +345,7 @@ input:checked + .slider:before {
   font-size: 16px;
   cursor: pointer;
   background: none;
+  border:2px solid red;
 }
 
 /* media query - please do not delete - currently not working

@@ -63,8 +63,9 @@ body {
   overflow: hidden;
   margin-right: 10px;
   margin: 10px;
+  margin-left: -100px;
   display: flex;
-  width: 500px;
+  width: 700px;
 }
 
 .search-input {

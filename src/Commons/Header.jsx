@@ -23,24 +23,22 @@ const Header = ({ modal, toggleModal }) => {
     setIsMenuClicked(false);
   };
 
-  const updateMenu = () => {
-    // function to update the menu state
+  const updateMenu = () => { // function to update the menu state
     setIsMenuClicked(!isMenuClicked); // toggle isMenuClicked to its opposite value
   };
 
   const handleModeChange = (checked) => {
-    setIsDarkMode(checked); // removed checked parameter without this dark mode wont toggle
+    setIsDarkMode(checked); 
   };
 
   // determine the class names for the hamburger menu and the menu based on the isMenuClicked value
-  const burgerClass = isMenuClicked
-    ? "burger-bar clicked"
-    : "burger-bar unclicked";
+  const burgerClass = isMenuClicked ? "burger-bar clicked" : "burger-bar unclicked";
   const menuClass = isMenuClicked ? "menu visible" : "menu hidden";
   const submenuClass = isSubmenuOpen ? "submenu visible" : "submenu hidden";
 
   // determine the content for the menu
   const menuContent = (
+    <nav>
     <ul className="menu__items">
       <li>
         <Link to="/" className="icon__link">
@@ -49,25 +47,25 @@ const Header = ({ modal, toggleModal }) => {
         </Link>
       </li>
       <li>
-        <button className="icon__link" onClick={handleMenuClick}>
+        <button className="icon__link option-button" onClick={handleMenuClick}>
           <i className="fas fa-fire"></i>
           <span className="menu__item">Trending</span>
         </button>
       </li>
       <li>
-        <button className="icon__link" onClick={handleMenuClick}>
+        <button className="icon__link option-button" onClick={handleMenuClick}>
           <i className="fab fa-youtube"></i>
           <span className="menu__item">Shorts</span>
         </button>
       </li>
       <li>
-        <button className="icon__button" onClick={handleMenuClick}>
+        <button className="icon__link option-button" onClick={handleMenuClick}>
           <i className="fas fa-video"></i>
           <span className="menu__item">Subscriptions</span>
         </button>
       </li>
       <li>
-        <button className="icon__link" onClick={handleMenuClick}>
+        <button className="icon__link option-button" onClick={handleMenuClick}>
           <i className="fas fa-book"></i>
           <span className="menu__item">Library</span>
         </button>
@@ -79,13 +77,16 @@ const Header = ({ modal, toggleModal }) => {
         </Link>
       </li>
       <li>
-        <Link to="/contact" className="icon__link" onClick={handleContactClick}>
+        <button className="icon__link option-button" onClick={handleContactClick}>
           <i className="fas fa-envelope"></i>
           <span className="menu__item">Contact</span>
-        </Link>
+        </button>
       </li>
       <li>
-        <div className="icon__link" onClick={() => setIsSubmenuOpen(!isSubmenuOpen)}>
+        <div
+          className="icon__link"
+          onClick={() => setIsSubmenuOpen(!isSubmenuOpen)}
+        >
           <i className="fas fa-cog"></i>
           <span className="menu__item">Settings</span>
         </div>
@@ -106,7 +107,9 @@ const Header = ({ modal, toggleModal }) => {
           </ul>
         )}
       </li>
-      <div className={`subscribed__list__items ${isDarkMode ? "dark" : "light"}`}>
+      <div
+        className={`subscribed__list__items ${isDarkMode ? "dark" : "light"}`}
+      >
         <li>
           <hr className="menu__line" />
         </li>
@@ -114,7 +117,7 @@ const Header = ({ modal, toggleModal }) => {
           <span className="menu__item">Subscribed</span>
         </h3>
         <div className="menu__subscribed">
-          <button className="subscribe__link">
+          <button className="subscribe__link subscribe-button">
             <p className="menu__subscribed-name">
               <img
                 className="menu__subscribed__img"
@@ -124,7 +127,7 @@ const Header = ({ modal, toggleModal }) => {
               <span>Artsy Girl</span>
             </p>
           </button>
-          <button className="subscribe__link">
+          <button className="subscribe__link subscribe-button">
             <p className="menu__subscribed-name">
               <img
                 className="menu__subscribed__img"
@@ -134,7 +137,7 @@ const Header = ({ modal, toggleModal }) => {
               <span>Редакция</span>
             </p>
           </button>
-          <button className="subscribe__link">
+          <button className="subscribe__link subscribe-button">
             <p className="menu__subscribed-name">
               <img
                 className="menu__subscribed__img"
@@ -150,6 +153,7 @@ const Header = ({ modal, toggleModal }) => {
         </li>
       </div>
     </ul>
+    </nav>
   );
 
   return (

@@ -12,12 +12,13 @@ body.active-modal {
   left: 50%;
   transform: translate(-50%, -50%);
   position: fixed;
+ 
 }
 
 .futureWorks__modal {
   z-index: 9999;
-  /* border: 2px solid red;
-  background-color: yellow; */
+  /* border: 2px solid red; */
+  /* background-color: yellow; */
 }
 
 .futureWorks__ModalContent h2 {
@@ -43,6 +44,7 @@ body.active-modal {
   min-width: 250px; */
   width: 400px;
   height: 150px;
+  border: 2px solid red;
 }
 
 .futureWorks__CloseModal {

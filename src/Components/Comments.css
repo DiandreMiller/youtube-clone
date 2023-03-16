@@ -1,14 +1,14 @@
 .comments { 
     margin-top: 10px;
-    width: 40.25%; 
-    height: 30%;
+    margin-left: -50px;
+    width: 600px; 
     place-items: center;
-    margin-bottom: 20%;
+    margin-bottom: 200px;
 }
 
 .comments button {
-    width: 20%;
-    height: 10%;
+    width: 60px;
+    height: 20px;
 }
 
 .comments form {
@@ -18,6 +18,7 @@
     width: 100%; 
     margin-left: 0%;
     margin-bottom: 2%;
+    margin-top: 2%;
     /* transform: translate(-50%, -50%); */
 }
 

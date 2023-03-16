@@ -83,7 +83,7 @@ const ShowVideo = ({handleSearch, errorMessage,
         </div>
         <Comments id={id}/>
         </div>
-               
+        <div className="videos">    
           {videos ? videos.map((video, index) => {
             return (
               <div className="thumbnail" key={index}>
@@ -95,6 +95,7 @@ const ShowVideo = ({handleSearch, errorMessage,
               </div>
             );
           }): null} 
+          </div>
         </div>
 
       </div>

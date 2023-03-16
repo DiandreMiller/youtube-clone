@@ -25,8 +25,6 @@ import ClockLoader from "react-spinners/ClockLoader";
 import { createContext } from "react";
 export const ThemeContext = createContext("null");
 
-
-
 function App() {
   const [modal, setModal] = useState(false);
   //Loading Spinner
@@ -58,25 +56,25 @@ function App() {
 
   //Handle Search
 
-
   const [isModalMenuOpen, setIsModalMenuOpen] = useState(false);
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [search, setSearch] = useState("");
   const [videos, setVideos] = useState([]);
   const [videoIds, setVideoIds] = useState([]);
-  
 
   const URL = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=6`;
 
   const handleSearch = (event) => {
     event.preventDefault();
-    if (!search) {
+    if (!event.target[0].value) {
       setIsError(true);
       setErrorMessage("Please enter a search term.");
       return;
     }
-    fetch(`${URL}`)
+    fetch(
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${event.target[0].value}&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=6`
+    )
       .then((response) => {
         if (!response.ok) {
           if (response.status === 403) {
@@ -135,23 +133,29 @@ function App() {
             <Header modal={modal} toggleModal={toggleModal} />
           )}
           <Routes>
-            {loading ? null : <Route path="/"
-              element={<Home
-                handleSearch={handleSearch}
-                handleButtonClick={handleButtonClick}
-                URL={URL}
-                isError={isError}
-                setIsError={setIsError}
-                errorMessage={errorMessage}
-                videos={videos}
-                setVideos={setVideos}
-                videoIds={videoIds}
-                setVideoIds={setVideoIds}
-                search={search}
-                setSearch={setSearch}
-                isModalMenuOpen={isModalMenuOpen}
-                setIsModalMenuOpen={setIsModalMenuOpen} />}
-               />}
+            {loading ? null : (
+              <Route
+                path="/"
+                element={
+                  <Home
+                    handleSearch={handleSearch}
+                    handleButtonClick={handleButtonClick}
+                    URL={URL}
+                    isError={isError}
+                    setIsError={setIsError}
+                    errorMessage={errorMessage}
+                    videos={videos}
+                    setVideos={setVideos}
+                    videoIds={videoIds}
+                    setVideoIds={setVideoIds}
+                    search={search}
+                    setSearch={setSearch}
+                    isModalMenuOpen={isModalMenuOpen}
+                    setIsModalMenuOpen={setIsModalMenuOpen}
+                  />
+                }
+              />
+            )}
             {loading ? null : <Route path="/about" element={<About />} />}
             {loading ? null : (
               <Route
@@ -160,23 +164,27 @@ function App() {
               />
             )}
             {loading ? null : (
-              <Route path="/videos/:id"
-                element={<ShowVideo
-                  handleSearch={handleSearch}
-                  handleButtonClick={handleButtonClick}
-                  URL={URL}
-                  isError={isError}
-                  setIsError={setIsError}
-                  errorMessage={errorMessage}
-                  videos={videos}
-                  setVideos={setVideos}
-                  videoIds={videoIds}
-                  setVideoIds={setVideoIds}
-                  search={search}
-                  setSearch={setSearch}
-                  isModalMenuOpen={isModalMenuOpen}
-                  setIsModalMenuOpen={setIsModalMenuOpen}
-                />} />
+              <Route
+                path="/videos/:id"
+                element={
+                  <ShowVideo
+                    handleSearch={handleSearch}
+                    handleButtonClick={handleButtonClick}
+                    URL={URL}
+                    isError={isError}
+                    setIsError={setIsError}
+                    errorMessage={errorMessage}
+                    videos={videos}
+                    setVideos={setVideos}
+                    videoIds={videoIds}
+                    setVideoIds={setVideoIds}
+                    search={search}
+                    setSearch={setSearch}
+                    isModalMenuOpen={isModalMenuOpen}
+                    setIsModalMenuOpen={setIsModalMenuOpen}
+                  />
+                }
+              />
             )}
           </Routes>
         </BrowserRouter>

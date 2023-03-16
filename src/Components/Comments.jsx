@@ -1,15 +1,22 @@
 import { useState, useEffect } from 'react';
 import { firestore } from "../firebase_setup/firestore";
 import { addDoc, collection, getDocs, orderBy, serverTimestamp, query, deleteDoc, doc } from "@firebase/firestore";
+import "./Comments.css"
+import Modal from './Modal';
 
 
 export default function Comments({id}){
     const [comments, setComments] = useState([]);
     const [name, setName] = useState("");
     const [comment, setComment] = useState("");
+    const [showModal, setShowModal] = useState(false);
 
-    const handleSubmit = async (commentData, nameData) => {
-        const ref = collection(firestore, "comments") // Firebase creates this automatically
+    const handleButtonClick = () => {
+        setShowModal(!showModal);
+      };
+
+      const handleSubmit = async (commentData, nameData) => {
+      const ref = collection(firestore, "comments") // Firebase creates this automatically
         let data = {
             comment: commentData,
             name: nameData,
@@ -23,14 +30,8 @@ export default function Comments({id}){
             console.log(err)
         }
     }
-
-    const submitHandler = (e) => {
-        e.preventDefault()
-        handleSubmit(comment, name);
-        setName("");
-        setComment("");
-    }
-
+    
+    
     async function fetchComments(firestore) {
         const commentsCol = collection(firestore, 'comments');
         const commentsSnapshot = await getDocs(query(commentsCol,orderBy('timestamp', 'desc')));
@@ -45,21 +46,13 @@ export default function Comments({id}){
         fetchComments(firestore)
     }
 
-    // async function updateComment(firestore){
-        
-    // }
-
-
     useEffect(() => {
         fetchComments(firestore);
     }, []);
     return (
-        <div className="comments">
-        <form onSubmit={submitHandler}>
-            <input type="text" value={name}  onChange={(e) => setName(e.target.value)}/>
-            <textarea type="text" value={comment}  onChange={(e) => setComment(e.target.value)}/>
-            <button type="submit">Save</button>
-        </form>
+         <div className="comments">
+              <button onClick={handleButtonClick}>Leave a comment</button>
+              {showModal ? (<Modal comment={comment} setComment={setComment} name={name} setName={setName} handleSubmit={handleSubmit}/>) : null}     
         <h2>Comments</h2>
         <ul>
             {comments.map((comment, index) => (
@@ -71,6 +64,6 @@ export default function Comments({id}){
             ))}
         </ul>
     </div> 
-
     )
 }
+

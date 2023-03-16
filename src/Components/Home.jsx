@@ -1,23 +1,42 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FutureWorks from "./FutureWorks";
 import Error from "./Error";
 import "./Home.css";
+import FilterSearch from "./FilterSearch";
 
-const Home = ({ handleSearch, errorMessage, setErrorMessage,
-  videos, setVideos, videoIds, setVideoIds, setSearch, search,
-  isError, setIsError, isModalMenuOpen, setIsModalMenuOpen, handleButtonClick }
-) => {
+const Home = ({
+  handleSearch,
+  errorMessage,
+  setErrorMessage,
+  videos,
+  setVideos,
+  videoIds,
+  setVideoIds,
+  setSearch,
+  search,
+  isError,
+  setIsError,
+  isModalMenuOpen,
+  setIsModalMenuOpen,
+  handleButtonClick,
+}) => {
+  const [searchBy, setSearchBy] = useState("relevance");
+  const [maxResults, setMaxResults] = useState("2");
+  const [safeSearch, setSafeSearch] = useState("strict");
+  const [showFilterForm, setShowFilterForm] = useState(false);
 
- 
-
+  const URL = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=1`;
   const URL_Loading = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=1`;
 
-  
-
-
   useEffect(() => {
-    fetch(`${URL_Loading}`)
+    fetch(
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}&type=video${
+        maxResults && `&maxResults=${maxResults}`
+      }&key=${
+        process.env.REACT_APP_YOUTUBE
+      }&order=${searchBy}&safeSearch=${safeSearch}`
+    )
       .then((response) => {
         if (!response.ok) {
           setIsError(true);
@@ -35,7 +54,7 @@ const Home = ({ handleSearch, errorMessage, setErrorMessage,
       .catch((error) => {
         console.log(error);
       });
-  }, [URL_Loading]);
+  }, [search, maxResults, safeSearch, searchBy]);
 
   return (
     <div className="video-container">
@@ -45,8 +64,6 @@ const Home = ({ handleSearch, errorMessage, setErrorMessage,
           <div className="search-container">
             <input
               type="text"
-              value={search}
-              onChange={(event) => setSearch(event.target.value)}
               autoFocus
               placeholder="Search"
               className="search-input"
@@ -57,37 +74,38 @@ const Home = ({ handleSearch, errorMessage, setErrorMessage,
             </button>
           </div>
         </form>
+        <button
+          onClick={() => {
+            setShowFilterForm(!showFilterForm);
+          }}
+          className="filter-button"
+        >
+          <i class="fas fa-filter"></i>
+          Filter
+        </button>
+
+        {showFilterForm && (
+          <FilterSearch
+            searchBy={searchBy}
+            setSearchBy={setSearchBy}
+            safeSearch={safeSearch}
+            setSafeSearch={setSafeSearch}
+            maxResults={maxResults}
+            setMaxResults={setMaxResults}
+          />
+        )}
+
         <div className="buttons-container">
-          <button className="search-option-button" onClick={handleButtonClick}>
-            All
-          </button>
-          <button className="search-option-button" onClick={handleButtonClick}>
-            Music
-          </button>
-          <button className="search-option-button" onClick={handleButtonClick}>
-            Cooking
-          </button>
-          <button className="search-option-button" onClick={handleButtonClick}>
-            Programming
-          </button>
-          <button className="search-option-button" onClick={handleButtonClick}>
-            Gaming
-          </button>
-          <button className="search-option-button" onClick={handleButtonClick}>
-            Awards
-          </button>
-          <button className="search-option-button" onClick={handleButtonClick}>
-            Auditions
-          </button>
-          <button className="search-option-button" onClick={handleButtonClick}>
-            Comedy
-          </button>
-          <button className="search-option-button" onClick={handleButtonClick}>
-            Baseball
-          </button>
-          <button className="search-option-button" onClick={handleButtonClick}>
-            Drawing
-          </button>
+          <button className="search-option-button">All</button>
+          <button className="search-option-button">Music</button>
+          <button className="search-option-button">Cooking</button>
+          <button className="search-option-button">Programming</button>
+          <button className="search-option-button">Gaming</button>
+          <button className="search-option-button">Awards</button>
+          <button className="search-option-button">Auditions</button>
+          <button className="search-option-button">Comedy</button>
+          <button className="search-option-button">Baseball</button>
+          <button className="search-option-button">Drawing</button>
           {isModalMenuOpen && (
             <FutureWorks setIsModalMenuOpen={setIsModalMenuOpen} />
           )}

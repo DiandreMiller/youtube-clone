@@ -6,7 +6,7 @@ const FutureWorks = ({ setIsModalMenuOpen }) => {
 
   return (
     <div className="futureWorks__modal">
-      <div className="futureWorks__overlay"></div>
+      <div className="futureWorks__overlay"> </div>
       <div className="futureWorks__ModalContainer">
         <div className="futureWorks__ModalContent">
           <h2>Coming Soon...</h2>

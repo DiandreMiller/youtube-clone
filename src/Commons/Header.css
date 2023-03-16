@@ -1,31 +1,32 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
 }
 
+
 .light {
   color: #000;
-  
 }
 
-/* Dark mode */
+
 .dark {
   background-color: #121212;
   color: #c7c7c7;
 }
 
-/* Menu items in light mode */
+.dark p {
+  color: #c7c7c7;
+}
+
 .menu__items.light {
   color: #000;
 }
 
-/* Menu items in dark mode */
 .menu__items.dark {
   background-color: #121212;
   color: #c7c7c7;
 }
 
-/* Light mode styles */
 .menu__items.light .menu__item {
   color: black;
 }
@@ -34,7 +35,6 @@
   color: gray;
 }
 
-/* Dark mode styles */
 .menu__items.dark .menu__item {
   color: #c7c7c7;
 }
@@ -74,15 +74,12 @@ header {
   height: 0.5em;
   background-color: #aeabab;
   border-radius: 0.5em;
-  padding:4px;
+  padding: 4px;
   margin-bottom: 5px;
   transition: transform 0.5s ease-out, opacity 0.5s ease-out,
     background-color 0.5s ease-out;
-    
 }
 
-/* ----- animations--------- */
-/* clicked */
 .burger-bar.clicked:nth-child(1) {
   transform: rotate(45deg) translate(0.75em, 1.15em);
   transition: ease-out 0.5s;
@@ -94,11 +91,10 @@ header {
 }
 
 .burger-bar.clicked:nth-child(3) {
-  transform: rotate(135deg) translate(0em, .67em);
+  transform: rotate(135deg) translate(0em, 0.67em);
   transition: ease-out 0.5s;
 }
 
-/* unclicked */
 .burger-bar.unclicked {
   transform: rotate(0) translate(0);
   transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
@@ -111,12 +107,10 @@ header {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 20px;
-  
 }
 
 .menu__items li {
   margin-bottom: 1em;
-  
 }
 
 .menu {
@@ -129,19 +123,16 @@ header {
   z-index: 1000;
   overflow-y: auto;
   transition: transform 0.3s ease-in-out;
-
 }
 
 .menu.visible {
   transform: translateX(0%);
-  
 }
 
 .header__left {
   display: flex;
   align-items: center;
   width: 15%;
-  
 }
 
 .navbar__logo {
@@ -160,7 +151,7 @@ header {
   display: flex;
   justify-content: flex-end;
   width: 25%;
-  
+  cursor: pointer;
 }
 
 .navbar__rightIcons i {
@@ -186,6 +177,7 @@ header {
 .navbar__rightIcons i:hover {
   background-color: rgb(242, 242, 242);
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .menu__items li:hover {
@@ -193,7 +185,13 @@ header {
   border-radius: 0.5rem;
 }
 
-.icon__link {
+.subscribed__list__items p:hover {
+  background-color: rgb(242, 242, 242);
+  border-radius: 0.5rem;
+}
+
+.icon__link,
+.subscribe__link {
   text-decoration: none;
 }
 
@@ -217,7 +215,7 @@ header {
 .switch-container {
   display: flex;
   align-items: center;
-  margin-left: 10px; 
+  margin-left: 10px;
 }
 
 .submenu__items {
@@ -252,8 +250,8 @@ header {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
   border-radius: 34px;
 }
 
@@ -265,8 +263,8 @@ header {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
   border-radius: 50%;
 }
 
@@ -282,7 +280,7 @@ input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
-}
+} 
 
 .slider.round {
   border-radius: 34px;
@@ -292,9 +290,72 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-/* media query - do not delete
+.menu__subscribed {
+  margin-top: 10px;
+}
 
-@media only screen and (max-width: 768px) {
+.menu__subscribed-name {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.menu__subscribed-name span {
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.menu__subscribed__img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.menu__subscribed__p {
+  font-size: 16px;
+
+}
+
+.menu__items li.subscribed__menu-item:hover {
+  background-color: transparent;
+}
+
+.option-button {
+  background: none;
+  border: none;
+  color: black;
+  padding: 0;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.subscribe-button {
+  border: none;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  background: none;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5em;
+  padding: 0em; 
+  margin: 5px;
+  margin-left: 5px;
+  margin-top: 20px;
+  width:100%;
+}
+
+.subscribe-button:hover{
+  background-color: rgb(242, 242, 242);
+  border-radius: 0.5rem;
+}
+
+
+/* media query - please do not delete - currently not working
+
+@media only screen and (max-width: 768px) { 
   .header__left {
     width: 50%;
   }

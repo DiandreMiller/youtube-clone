@@ -14,9 +14,9 @@ export default function ShowVideo() {
     return (
         <div className="showVideo">
         <div className="video">
-            <YouTube videoId={id} />
+            <YouTube videoId={id}/>
         </div>
-        <Comments/>
+        <Comments id={id}/>
         </div>
     )
 }

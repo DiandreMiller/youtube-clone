@@ -10,36 +10,50 @@ import Diandre from "./Diandre";
 
 const About = () => {
   return (
-    <div>
-      <div className="developers">
-        <img
-          className="developers__img"
-          src={MeetTheDevelopers}
-          alt="Meet The Developers"
-        />
-        <img
-          className="vandhana"
-          src={vandhanaTravel}
-          alt='vandhana in a plane'
-          height='300px'
-        />
-        <Vandhana />
-        <img
-          className="ariunaa"
-          src={AriunaaReading}
-          alt='ariunaa in a library'
-          height='300px'
-        />
-        <Ariunaa />
-        <img
-          className="diandre"
-          src={DiandreGym}
-          alt='diandre in a gym'
-          height='300px'
-        />
-        <Diandre />
-      </div>
+    <div className="developers">
+  <img
+    className="developers__img"
+    src={MeetTheDevelopers}
+    alt="Meet The Developers"
+  />
+  <div className="vandhana-container">
+    <img
+      className="vandhana"
+      src={vandhanaTravel}
+      alt="vandhana in a plane"
+      height="300px"
+    />
+    <div className="text-overlay">
+      <p>Hi nice to meet you</p>
     </div>
+  </div>
+  <Vandhana />
+  <div className="ariunaa-container">
+    <img
+      className="ariunaa"
+      src={AriunaaReading}
+      alt="ariunaa in a library"
+      height="300px"
+    />
+    <div className="text-overlay">
+      <p>Hi nice to meet you</p>
+    </div>
+  </div>
+  <Ariunaa />
+  <div className="diandre-container">
+    <img
+      className="diandre"
+      src={DiandreGym}
+      alt="diandre in a gym"
+      height="300px"
+    />
+    <div className="text-overlay">
+      <p>Hi nice to meet you</p>
+    </div>
+  </div>
+  <Diandre />
+</div>
+
   );
 };
 

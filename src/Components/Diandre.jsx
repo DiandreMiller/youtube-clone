@@ -9,7 +9,8 @@ const Diandre = () => {
                 Git, GitHub, and vscode. I truly enjoy building web applications from scratch
                 and the problem solving required to learn these skills. 
 
-                Prior to joining Pursuit, I had a background in journalism and political s
+                Prior to joining Pursuit, I had a background in journalism and political
+                science. 
             </p>
         </div>
     )

@@ -67,7 +67,7 @@ function App() {
   const [videoIds, setVideoIds] = useState([]);
   
 
-  const URL = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=1`;
+  const URL = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}&type=video&key=${process.env.REACT_APP_YOUTUBE}&maxResults=6`;
 
   const handleSearch = (event) => {
     event.preventDefault();

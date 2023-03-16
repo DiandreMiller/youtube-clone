@@ -12,3 +12,8 @@
 .comments {
     margin-left: 400px;
 }
+
+.showVideo {
+    display: grid;
+    grid-template-columns: 1fr;
+}

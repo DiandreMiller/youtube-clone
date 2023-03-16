@@ -60,12 +60,15 @@
 .vandhana-container {
   position: relative;
   display: inline-block;
+  padding: 30px;
 }
+
+
 
 .vandhana-container .text-overlay {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 35%;
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
@@ -82,12 +85,13 @@
 .ariunaa-container {
   position: relative;
   display: inline-block;
+  padding: 30px;
 }
 
 .ariunaa-container .text-overlay {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 35%;
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
@@ -104,12 +108,13 @@
 .diandre-container {
   position: relative;
   display: inline-block;
+  padding: 30px;
 }
 
 .diandre-container .text-overlay {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 40%;
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
@@ -122,3 +127,34 @@
 .diandre-container:hover .text-overlay {
   opacity: 1;
 }
+
+.Diandre_font, .Ariunaa_Font, .Vandhana_Font {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'comic sans ms';
+  color: red;
+  padding: 10px;
+  width: 700px;
+  text-align: justify;
+}
+
+.Diandre_font{
+  padding-bottom: 50px;
+}
+
+.aboutUs{
+  font-size: 50px;
+  font-weight: bold;
+  font-family: 'comic sans ms';
+  color: black;
+  padding: 10px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.vandhana, .ariunaa, .diandre {
+ margin-left: -20px;
+ border-radius: 5%;
+ justify-content: justify;
+}
+

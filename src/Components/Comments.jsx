@@ -63,13 +63,14 @@ export default function Comments({id}){
             <div className='comment-section'>
         <h2>Comments</h2>
             {comments.map((comment, index) => (
-                <>
+                id === comment.data.id ? 
+                (<>
                 <div className='comment' key={index}>
                     <p className='author'><strong>{comment.data.name}:</strong></p>
                     <p>{comment.data.comment}</p>
                 </div>
                 <button onClick={()=>deleteComment(firestore, comment.id)}>Delete</button> 
-                </>
+                </>) : null
             ))}
             </div>
     </div> 

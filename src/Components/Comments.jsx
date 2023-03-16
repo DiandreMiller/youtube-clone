@@ -2,18 +2,20 @@ import { useState, useEffect } from 'react';
 import { firestore } from "../firebase_setup/firestore";
 import { addDoc, collection, getDocs, orderBy, serverTimestamp, query, deleteDoc, doc } from "@firebase/firestore";
 import "./Comments.css"
-import Modal from './Modal';
+
 
 
 export default function Comments({id}){
     const [comments, setComments] = useState([]);
     const [name, setName] = useState("");
     const [comment, setComment] = useState("");
-    const [showModal, setShowModal] = useState(false);
 
-    const handleButtonClick = () => {
-        setShowModal(!showModal);
-      };
+    const submitHandler = (e) => {
+        e.preventDefault()
+        handleSubmit(comment, name);
+        setName("");
+        setComment("");
+    }
 
       const handleSubmit = async (commentData, nameData) => {
       const ref = collection(firestore, "comments") // Firebase creates this automatically
@@ -30,8 +32,7 @@ export default function Comments({id}){
             console.log(err)
         }
     }
-    
-    
+
     async function fetchComments(firestore) {
         const commentsCol = collection(firestore, 'comments');
         const commentsSnapshot = await getDocs(query(commentsCol,orderBy('timestamp', 'desc')));
@@ -51,18 +52,26 @@ export default function Comments({id}){
     }, []);
     return (
          <div className="comments">
-              <button onClick={handleButtonClick}>Leave a comment</button>
-              {showModal ? (<Modal comment={comment} setComment={setComment} name={name} setName={setName} handleSubmit={handleSubmit}/>) : null}     
+            <form onSubmit={submitHandler}>
+                <h2>Leave Comment</h2>
+                <label htmlFor="name">Name:</label>
+                <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} required />
+                <label htmlFor="comment">Comment:</label>
+                <textarea type="text" id="comment" value={comment} onChange={(e) => setComment(e.target.value)} required />
+                <button type="submit">Post</button>
+            </form>
+            <div className='comment-section'>
         <h2>Comments</h2>
-        <ul>
             {comments.map((comment, index) => (
                 <>
-                <li key={index}>{comment.data.name} says, {comment.data.comment}</li>
-                 {/* <button onClick={}>Edit</button> */}
+                <div className='comment' key={index}>
+                    <p className='author'><strong>{comment.data.name}:</strong></p>
+                    <p>{comment.data.comment}</p>
+                </div>
                 <button onClick={()=>deleteComment(firestore, comment.id)}>Delete</button> 
                 </>
             ))}
-        </ul>
+            </div>
     </div> 
     )
 }

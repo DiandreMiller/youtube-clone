@@ -26,14 +26,14 @@ export default function Comments({id}){
 
     const submitHandler = (e) => {
         e.preventDefault()
-        handleSubmit(e.target[1].value, e.target[0].value);
+        handleSubmit(comment, name);
         setName("");
         setComment("");
     }
 
     async function fetchComments(firestore) {
         const commentsCol = collection(firestore, 'comments');
-        const commentsSnapshot = await getDocs(query(commentsCol),orderBy('timestamp', 'asc'));
+        const commentsSnapshot = await getDocs(query(commentsCol,orderBy('timestamp', 'desc')));
         const commentsList = commentsSnapshot.docs.map(doc => {
             let data = doc.data();
             return {data: data, id: doc.id}});

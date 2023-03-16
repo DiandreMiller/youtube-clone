@@ -12,7 +12,6 @@ const Home = () => {
   const [search, setSearch] = useState("");
   const [videos, setVideos] = useState([]);
   const [videoIds, setVideoIds] = useState([]);
-
   const [searchBy, setSearchBy] = useState("relevance");
   const [maxResults, setMaxResults] = useState("2");
   const [safeSearch, setSafeSearch] = useState("strict");
@@ -122,8 +121,10 @@ const Home = () => {
           }}
           className="filter-button"
         >
+          <i class="fas fa-filter"></i>
           Filter
         </button>
+        
         {showFilterForm && (
           <FilterSearch
             searchBy={searchBy}

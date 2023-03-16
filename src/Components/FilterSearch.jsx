@@ -8,6 +8,7 @@ const FilterSearch = ({
   safeSearch,
   setSafeSearch,
 }) => {
+
   const handleFilterChange = (event) => {
     setSearchBy(event.target.value);
   };
@@ -22,22 +23,28 @@ const FilterSearch = ({
 
   return (
     <div>
-      <form>
-        <label htmlFor="max-results-input">Max number of results:</label>
+      <form className="filterform">
+        <label htmlFor="max-results-input" className="filterform__label">
+          Max number of results:
+        </label>
         <input
           onChange={handleMaxResultsChange}
           type="number"
           id="max-results-input"
           name="max-results-input"
           defaultValue={maxResults}
+          className="filterform__input"
         />
-
-        <label htmlFor="order-select">Order of videos:</label>
+        <br />
+        <label htmlFor="order-select" className="filterform__label">
+          Order of videos:
+        </label>
         <select
           onChange={handleFilterChange}
           id="order-select"
           name="order-select"
           defaultValue={searchBy}
+          className="filterform__select"
         >
           <option value="date">Date</option>
           <option value="rating">Rating</option>
@@ -46,13 +53,16 @@ const FilterSearch = ({
           </option>
           <option value="title">Title</option>
         </select>
-
-        <label htmlFor="safe-search-select">Safe search:</label>
+        <br />
+        <label htmlFor="safe-search-select" className="filterform__label">
+          Safe search:
+        </label>
         <select
           onChange={handleSafeSearchChange}
           id="safe-search-select"
           name="safe-search-select"
           defaultValue={safeSearch}
+          className="filterform__select"
         >
           <option value="moderate">Moderate</option>
           <option value="none">None</option>

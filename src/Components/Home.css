@@ -123,3 +123,24 @@ body {
   cursor: pointer;
   transition: box-shadow 0.5s ease-in;
 }
+
+.filter-button {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 5px 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: black;
+  font-size: 18px;
+  background: none;
+}
+
+.filter-button:hover {
+  background-color: rgb(227, 226, 227);
+}
+
+.filter-button i {
+  font-size: 1.2em;
+}

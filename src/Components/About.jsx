@@ -7,6 +7,7 @@ import vandhanaTravel2 from "../Images/vandhanaTravel2.jpeg";
 import Vandhana from "./Vandhana";
 import Ariunaa from "./Ariunaa";
 import Diandre from "./Diandre";
+import SpecialThanks from "./SpecialThanks";
 
 const About = () => {
   return (
@@ -68,7 +69,12 @@ const About = () => {
         </div>
       </div>
       <Diandre />
+      <SpecialThanks/>
     </div>
+
+    
+
+    
   );
 };
 
